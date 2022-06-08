@@ -167,11 +167,11 @@
 
             function crearObjeto(){
 
-                const NAME = Symbol()  
+                const NAME = Symbol('name')  
 
                 let obj = {
                     [NAME]:"jon",
-                    eage:33
+                    age:33
                 }
 
                 let id = Symbol('identificador')
@@ -195,14 +195,10 @@
             let objeto = x.get()
             console.log('objeto:', objeto)
 
-            x.setId(33)
+            x.setId(333)
 
             let t = x.getId()
-            console.log(t)
-
-            console:
-            objeto: {age: 33, Symbol(): 'jon', Symbol(identificador): 0}
-            33
+            console.log('id:', t)
 
 
             <hr>
