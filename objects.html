@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS OBJECTS</title>
+</head>
+<link rel="stylesheet" href="DOM/style.css">
+<script>
+    function toggle(){
+        document.querySelector("#pre").classList.toggle("display")
+        document.querySelector("#pre2").classList.toggle("display")
+    }
+    
+    function toggle2(){
+        document.querySelector("#pre3").classList.toggle("display")
+        document.querySelector("#pre4").classList.toggle("display")
+    }
+    
+    function toggle3(){
+        document.querySelector("#pre5").classList.toggle("display")
+        document.querySelector("#pre6").classList.toggle("display")
+    }
+    
+       
+    function toggle4(){
+        document.querySelector("#pre7").classList.toggle("display")
+        document.querySelector("#pre7a").classList.toggle("display")
+    }
+
+    function toggle5(){
+        document.querySelector("#pre8").classList.toggle("display")
+    }
+
+    function toggle6(){
+        document.querySelector("#pre9").classList.toggle("display")
+        document.querySelector("#pre9a").classList.toggle("display")
+    }
+
+    function toggle6a(){
+        document.querySelector("#pre9b").classList.toggle("display")
+        document.querySelector("#pre9c").classList.toggle("display")
+    }
+
+    function toggle7(){
+        document.querySelector("#pre10").classList.toggle("display")
+        document.querySelector("#pre10a").classList.toggle("display")
+        document.querySelector("#pre10b").classList.toggle("display")
+        document.querySelector("#pre10c").classList.toggle("display")
+    }
+
+    function toggle8(){
+        document.querySelector("#pre11").classList.toggle("display")
+        document.querySelector("#pre11a").classList.toggle("display")
+        document.querySelector("#pre11b").classList.toggle("display")
+    }
+
+    function toggle9(){
+        document.querySelector("#pre12").classList.toggle("display")
+        document.querySelector("#pre12a").classList.toggle("display")
+    }
+
+    function toggle11(){
+        document.querySelector("#pre14").classList.toggle("display")
+        document.querySelector("#pre14b").classList.toggle("display")
+    }
+
+    function toggle12(){
+        document.querySelector("#pre15").classList.toggle("display")
+        document.querySelector("#pre15a").classList.toggle("display")
+        document.querySelector("#pre15b").classList.toggle("display")
+    }
+
+    function toggle13(){
+        document.querySelector("#pre16").classList.toggle("display")
+        document.querySelector("#pre16a").classList.toggle("display")
+        document.querySelector("#pre16b").classList.toggle("display")
+    }
+
+    function toggle133(){
+        document.querySelector("#pre166").classList.toggle("display")
+        document.querySelector("#pre16aa").classList.toggle("display")
+        document.querySelector("#pre16bb").classList.toggle("display")
+    }
+
+    function toggle14(){
+        document.querySelector("#pre17").classList.toggle("display")
+        document.querySelector("#pre17a").classList.toggle("display")
+        document.querySelector("#pre17b").classList.toggle("display")
+    }
+
+    function toggle15(){
+        document.querySelector("#pre18").classList.toggle("display")
+        document.querySelector("#pre18a").classList.toggle("display")
+        document.querySelector("#pre18b").classList.toggle("display")
+    }
+
+</script>
+<body>
+
+    <h1>OBJECTS</h1>
+
+    <div>  <!-- create a new object, make a copy of an object -->
+    <p onclick="toggle()">1.- create a new object, make a copy of an object</p>
+
+        <pre id="pre">
+
+            Object.create()
+
+            Creates a new object with the specified prototype object and properties.
+
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              const obj2 = Object.create(obj)
+              console.log(obj2)
+              
+              Output
+              Object {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+        </pre>
+        <pre id="pre2">
+          
+            make a copy of an object
+
+            Object.assign()
+
+            Copies the values of all enumerable own properties from one or more
+            source to a target object. It will return the target object. 
+            Though not technically a built in object method, 
+            it's more common when using ES6 to make use of the Spread Operator
+            by using ...
+
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              const copy = Object.assign({}, obj)
+              console.log(copy)
+              
+              Output
+              Object{
+                a:1,
+                b:2,
+                c:3
+              }
+        </pre>
+    </div>  
+    <br>
+    <div>  <!-- create properties, a new property or modify an existing one -->
+        <p onclick="toggle2()">2.- create properties, a new property or modify an existing one</p>
+
+        <pre id="pre3">
+
+            Object.defineProperty()
+
+        Adds the named property described by a given descriptor to an object.
+        Important note for beginners! It's more common to use dot or square bracket
+        notation to create a new property or modify an existing one. Like this: obj.a = 1 or obj[a] = 1. 
+        This isn't technically a built-in method, that's why it's not included.
+
+        let obj = {
+            a: 1,
+            b: 2,
+            c: 3
+          }
+          
+          Object.defineProperty(obj, 'd', {
+            enumerable: true,
+            configurable: true,
+            writable: true,
+            value: 4
+          })
+          
+          console.log(obj.d)
+          
+          Output
+          4
+        </pre>
+        <pre id="pre4">
+          
+            one or more properties or modify existing properties
+
+            Object.defineProperties()
+
+           Adds one or more properties described by a given descriptor to an object.
+
+           Important note for beginners! It's more common to use dot or square bracket 
+           notation to create a new property or modify an existing one. 
+           Like this: obj.a = 1 or obj[a] = 1. 
+           This isn't technically a built-in method, that's why it's not included.
+
+           let obj = {
+            a: 1,
+            b: 2,
+            c: 3
+          }
+          
+          Object.defineProperties(obj, {
+            d: {
+              value: 4,
+              writable: true
+            },
+            e: {
+              value: 5,
+              writable: true
+            }
+          })
+          
+          console.log(obj)
+          
+          Output
+          {a: 1, b: 2, c: 3, d: 4, e: 5}
+         </pre>    
+    </div>  
+    <br>
+    <div>  <!-- get information about an object, determine if more properties can be added   -->
+        <p onclick="toggle3()">3.- get information about an object, determine if more properties can be added  </p>
+
+        <pre id="pre5">
+
+            .freeze : freezing an object prevents new properties from being added to it
+
+            The Object.isExtensible() method determines if an object is extensible 
+            (whether it can have new properties added to it).
+
+            <hr>
+
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              console.log(Object.isExtensible(obj))
+              Object.freeze(obj)
+              console.log(Object.isExtensible(obj))
+              
+              Output
+              true
+              false
+        </pre>
+        <pre id="pre6">
+
+
+            if two references point to the same object
+
+            Object.is()
+
+            Compares if two references point to the same object. Equates 
+            all NaN values (which differs from both Abstract Equality Comparison
+            and Strict Equality Comparison). This one is a little weird, 
+            and the MDN docs are a bit misleading. 
+            It's more useful to use triple equals === to check equality
+
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              let obj2 = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              console.log(Object.is(obj, obj2))
+              console.log(Object.is(obj, obj))
+              
+              Output
+              false
+              true
+         </pre>    
+    </div> 
+    <div>  <!-- get information about an object, if an object and its properties cant be modified -->
+        <p onclick="toggle4()">4.- get information about an object, if an object and its properties cant be modified</p>
+
+        <pre id="pre7">
+
+            <a target="_blanck"
+             href="https://medium.com/@nlfernando11/object-freeze-vs-object-seal-vs-object-preventextensions-251ee99d0c47">vs >>></a>
+
+            Object.isFrozen()
+            
+            Determines if an object is frozen.
+
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              console.log(Object.isFrozen(obj))
+              Object.freeze(obj)
+              console.log(Object.isFrozen(obj))
+              
+              Output
+              false
+              true
+        </pre>
+        <pre id="pre7a">
+            
+            if an object cant be modified (its propereties can be, though)
+
+            Object.isSealed()
+
+            Determines if the descriptor of its properties 
+            can't be changed and new properties can't be created.
+
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              Object.seal(obj)
+              
+              console.log(Object.isSealed(obj))
+              
+              Output
+              true
+
+              <hr>
+
+              Object.seal()
+              
+            Object.seal() simply converts an object passed as the argument into a sealed state. 
+            An object called by this method can not have any new properties being added. 
+            But it can change existing property values as long as writable metadata is true.
+        </pre>
+       
+    </div>  
+    <div> <!--  get information about an object, determine if an object is in the prototype chain -->
+       <p onclick="toggle5()">5.- get information about an object, determine if an object is in the prototype chain</p>
+       <pre id="pre8">
+
+        Object.isPrototypeOf()
+
+        Returns a boolean indicating whether the object this method is
+        called upon is in the prototype chain of the specified object.
+
+        function Rect() {}
+
+        let rect = new Rect()
+
+        console.log(Rect.prototype.isPrototypeOf(rect))
+
+        Output
+        true
+       </pre>
+    </div>
+    <br>
+    <div> <!-- get information about properties, details about the properties -->
+        <p onclick="toggle6()">6.- get information about properties, details about the properties</p>
+        <pre id="pre9">
+ 
+            Object.getOwnPropertyDescriptor()
+
+            Returns a property descriptor for a named property on an object.
+
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              const o = Object.getOwnPropertyDescriptor(obj, 'a')
+              
+              console.log(o)
+              
+              Output
+              Object {
+                configurable: true,
+                enumerable: true,
+                value: 1,
+                writable: true
+              }
+        </pre>
+
+       
+        <pre id="pre9a">
+            
+            details about all the properties on an object
+           
+            Object.getOwnPropertyDescriptors()
+
+            Returns an object containing all own property descriptors for an object.
+
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              console.log(Object.getOwnPropertyDescriptors(obj))
+              
+              Output
+              Object {
+                a: Object {
+                  configurable: true,
+                  enumerable: true,
+                  value: 1,
+                  writable: true
+                },
+                b: Object {
+                  configurable: true,
+                  enumerable: true,
+                  value: 2,
+                  writable: true
+                },
+                c: Object {
+                  configurable: true,
+                  enumerable: true,
+                  value: 3,
+                  writable: true
+                },
+              }
+        </pre>
+    </div>
+    <div> <!-- get information about properties, find out if the object is in the prototype chain. -->
+        <p onclick="toggle6a()">7.- get information about properties, find out if the object is in the prototype chain.</p>
+        
+        <pre id="pre9b">
+
+            if a property can be traversed with a for ...in loop
+        
+            Object.propertyIsEnumerable()
+        
+            Returns a boolean indicating if the internal
+            ECMAScript [[Enumerable]] attribute is set. 
+            This can be used to see if something is a built-in or user-defined
+            method because built-in properties tend to not be enumerable
+        
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              console.log(obj.propertyIsEnumerable('a'))
+              console.log(Math.propertyIsEnumerable('random'))
+              
+              Output
+              true
+              false
+        </pre>
+        <pre id="pre9c">
+        
+            if a property exists as a direct property of the object
+            
+            Object.hasOwnProperty()
+        
+            Returns a boolean indicating whether an object contains 
+            the specified property as a direct property of 
+            that object and not inherited through the prototype chain.
+        
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              console.log(obj.hasOwnProperty('a'))
+              delete obj.a
+              console.log(obj.hasOwnProperty('a'))
+              
+              Output
+              true
+              false
+        </pre>
+          
+           
+       
+    </div> 
+    <div> <!-- get information about properties, a list of all of the keys and/or values. -->
+        <p onclick="toggle7()">8.- get information about properties, a list of all of the keys and/or values.</p>
+        <pre id="pre10">
+
+            I need to get an array of all of the KEYS
+ 
+            Object.keys()
+
+            Returns an array containing the names of all of the object's keys
+            that can be looped through, in the order that they would be looped through.
+
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              console.log(Object.keys(obj))
+              
+              Output
+              ["a", "b", "c"]
+        </pre>
+        <pre id="pre10a">
+
+            a list of all of the keys and/or values, I need to get an array of all of the VALUES
+
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              console.log(Object.values(obj))
+              
+              Output
+              [1, 2, 3]
+        </pre>
+        <pre id="pre10b">
+
+            list of all of the keys and/or values, I need to get an array of all of the KEYS AND VALUES
+
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              console.log(Object.entries(obj))
+              
+              Output
+              [["a", 1], ["b", 2], ["c", 3]]
+        </pre>
+        <pre id="pre10c">
+
+            a list of all of the keys and/or values,
+            I need to get an array of all of the KEYS, even if you cant loop through them            
+
+            Object.getOwnPropertyNames()
+
+            Returns an array containing the names of all of the given
+            object's own enumerable and non-enumerable properties.
+            Does the same thing as Object.keys(), retrieving the keys in the object, 
+            but getOwnPropertyNames() will include properties that can't be looped through.
+
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              Object.defineProperty(obj, 'a', {
+                enumerable: false
+              })
+              
+              console.log(Object.keys(obj))
+              console.log(Object.getOwnPropertyNames(obj))
+              
+              Output
+              ["b", "c"]
+              ["a", "b", "c"]
+        </pre>
+    </div> 
+    <br>
+    <div> <!-- restrict changes to an object, make sure properties cant be added or deleted -->
+        <p onclick="toggle8()">9.- restrict changes to an object, make sure properties cant be added or deleted</p>
+        <pre id="pre11">
+ 
+            Object.seal()
+
+            Prevents other code from deleting properties of an object. 
+            Existing properties can still be modified.
+
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              Object.seal(obj)
+              delete obj.c
+              
+              console.log(obj)
+              
+              Output
+              {a: 1, b: 2, c: 3} // obj.c doesn't get deleted
+        </pre>
+        <pre id="pre11a">
+ 
+            restrict changes to an object, make sure properties 
+            cant be added, deleted, or modified.
+
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              Object.freeze(obj)
+              obj.a = 10
+              
+              console.log(obj.a)
+              
+              Output
+              1 //the value didn't update to 10
+        </pre>
+        <pre id="pre11b">
+
+            restrict changes to an object, make sure properties cant be added.
+
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              Object.preventExtensions(obj)
+              obj.d = 4
+              
+              console.log(obj.d)
+              
+              Output
+              undefined
+        </pre>
+    </div>  
+    <br>
+    <div> <!-- create a string from an object, return a string representation of the object -->
+        <p onclick="toggle9()">10.- create a string from an object, return a string representation of the object</p>
+        <pre id="pre12">
+ 
+            Object.toString()
+
+            The toString() method returns a string representing the object.
+            Though this is the built-in method available, 
+            it's usually more useful to use JSON.stringify()
+
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              console.log(obj.toString())
+              console.log(obj.a.toString())
+              
+              Output
+              "[object Object]"
+              "1"
+        </pre>
+        <pre id="pre12a">
+
+            create a string from an object, return a localized string representation of the object
+
+            Object.toLocaleString()
+
+            The toLocaleString() method returns a string representing the object.
+            This method is meant to be overridden by derived objects for locale-specific purposes.
+            In human terms: this means if you have something that has different data based on location, 
+            such as date methods, it will give you a different time format
+
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              obj.d = new Date()
+              
+              console.log(obj.d)
+              console.log(obj.d.toLocaleString())
+              
+              Output
+              Fri Dec 29 2017 20:57:35 GMT-0700 (MST)
+              12/29/2017, 8:57:35 PM
+        </pre>
+    </div> 
+    <br>
+    <div> <!-- manage prototypes, GET a prototype of the object -->
+        <p onclick="toggle11()">11.- manage prototypes, GET a prototype of the object </p>
+
+        <pre id="pre14">
+
+            manage prototypes, GET a prototype of the object
+
+            Object.getPrototypeOf()
+
+            Returns the prototype of the specified object. 
+            (i.e. the value of the internal [[Prototype]] property) of the specified object).
+
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3
+              }
+              
+              const proto = Object.create(obj)
+              console.log(Object.getPrototypeOf(proto) === obj)
+              
+              Output
+              true
+        </pre>
+       
+        <pre id="pre14b">
+
+            find out if the object is in the prototype chain.
+
+            Object.isPrototypeOf()
+
+            Returns a boolean indicating whether the object this method 
+            is called upon is in the prototype chain of the specified object.
+
+            function Rect() {}
+
+            let rect = new Rect()
+
+            console.log(Rect.prototype.isPrototypeOf(rect))
+
+            Output
+            true
+        </pre>
+    </div>   
+    <br>
+    <div> <!-- Proxy -->
+        <p onclick="toggle12()">12.- Proxy </p>
+
+        <pre id="pre15">
+
+         let handler = {
+            set (target, key, value){
+                console.log(`key:${key}, value:${value}`)
+            }
+         }
+         
+         let target = {}
+         
+         let proxy = new Proxy(target, handler)
+         
+         proxy.a = 1
+ 
+         proxy.b = 2
+ 
+         proxy.c = 3
+
+        <hr>
+
+        function trapMessage(){
+            return "It's a Trap!!!"
+        }
+
+        let handler = {
+            apply: function(target, thisArg) {
+                 return target.apply(thisArg)
+            }
+        }
+
+        let proxy = new Proxy(trapMessage, handler)
+
+        console.log(proxy()) 
+        
+        //returns It's a Trap!!
+
+        </pre>
+        <pre id="pre15a">
+
+           
+        </pre>
+        <pre id="pre15b">
+
+           
+        </pre>
+    </div> 
+    <br>
+    <div> <!-- class -->
+        <p onclick="toggle13()">13.- Classes </p>
+
+        <pre id="pre16">
+
+
+              class Cliente {
+                constructor(nombre, saldo) {
+                  this.nombre = nombre
+                  this.saldo = saldo    
+                }
+            
+                depositar(cantidad){
+                  this.saldo = this.saldo+cantidad
+                }    
+            
+                extraer(cantidad){
+                  this.saldo = this.saldo-cantidad
+                }    
+              }
+            
+              const cliente1 = new Cliente('diego', 1200)
+
+                console.log('cliente: ', cliente1.nombre)
+                console.log('Saldo: ', cliente1.saldo)
+
+                cliente1.depositar(120)
+                console.log('Saldo al depositar $120: ', cliente1.saldo)
+
+                cliente1.extraer(1000)
+                console.log('Saldo al extraer $1000: ', cliente1.saldo)
+
+
+            
+              const cliente2 = new Cliente('ana',100)
+
+                console.log('cliente2: ', cliente2.nombre)
+                console.log('Saldo actual: ', cliente2.saldo)
+
+                cliente2.depositar(200)
+                console.log('Saldo al depositar $200: ', cliente2.saldo)
+              
+              <hr>
+
+              function NumeroQuiniela(nombre){
+                this.nombre = nombre
+                this.numeroElegido = numeroElegido
+                this.verificarSiGano = verificarSiGano
+              }
+              
+              function numeroElegido(){ this.numero = 10 }
+              
+              function verificarSiGano(num){
+                if (this.numero == num)
+                  return true
+                else
+                  return false
+              }
+              
+              let numeroQuinielaUno = new NumeroQuiniela("juan")
+              numeroQuinielaUno.numeroElegido()
+              
+              // --------------------------------------------
+              
+              function Bolillero(){
+                this.numero = this.numero
+                this.sortear = sortear
+              }
+              
+              function sortear(){ this.numero = Math.floor(Math.random() * (1,11)) + 1; }
+              
+              let bolillero = new Bolillero()
+              bolillero.sortear()
+              
+              // ---------------------------------------------
+              
+              console.log('Numero sorteado:' + bolillero.numero)
+              console.log(numeroQuinielaUno.nombre + ' eligió: ' + numeroQuinielaUno.numero)
+              
+              let check = numeroQuinielaUno.verificarSiGano(bolillero.numero)
+              
+              if (check){
+                console.log(numeroQuinielaUno.nombre + ' Ha ganado ')
+              }else{
+                console.log(numeroQuinielaUno.nombre + ' No gano ') 
+              }
+               
+        </pre>
+        <pre id="pre16a">
+        
+            const jugador1 = {
+                nombre: 'ana',
+                puntos: 0,
+                imprimir() {
+                  console.log('Nombre:'+this.nombre)
+                  console.log('Puntos:'+this.puntos)
+                },
+                aumentarPuntos(cant) {
+                  this.puntos=this.puntos+cant
+                },
+                verificarSiGano() {
+                  if (this.puntos>1000)
+                    console.log('Gano')
+                  else
+                    console.log('No gano')
+                }
+              }
+            
+              jugador1.imprimir()
+              jugador1.aumentarPuntos(500)
+              jugador1.verificarSiGano()
+              jugador1.aumentarPuntos(501)
+              jugador1.verificarSiGano()
+              jugador1.imprimir()
+           
+        </pre>
+        <pre id="pre16b">
+
+              class ListaOrdenada {
+                constructor() {
+                  this.opciones=[]
+                }
+            
+                agregar(elemento) {
+                  this.opciones.push(elemento)
+                }
+            
+                imprimir() {
+                  let lista='< ol>'
+
+                  for(let x=0; x < this.opciones.length; x++){ 
+                    lista += `< li>${this.opciones[x]}< /li>`
+                  }
+
+                  lista += '< /ol>'
+
+                  console.log(lista)
+                }
+              }
+            
+              const lista1 = new ListaOrdenada()
+              lista1.agregar('Opcion a')
+              lista1.agregar('Opcion b')
+              lista1.agregar('Opcion c')
+              lista1.agregar('Opcion d')    
+              lista1.imprimir()
+
+        </pre>
+    </div>
+    <div> <!-- Inheritance -->
+        <p onclick="toggle133()">14.- Inheritance </p>
+
+        <pre id="pre166">
+
+  
+            With ES6 syntax has also been added to the JavaScript language to 
+            facilitate the concept of inheritance between classes.
+            
+            If we want one class to inherit from another we must indicate at the time 
+            that we declare it using the keyword 'extends' the name of the parent class:
+            
+            class Square extends Figure {
+            
+            }
+                
+        </pre>
+        <pre id="pre16aa">
+       
+
+    class Calculadora {
+      constructor(x1, x2) {
+        this.x1 = x1
+        this.x2 = x2
+        this.resultado = null
+      }
+  
+      sumar() {
+        this.resultado = this.x1 + this.x2
+        this.imprimir()
+      }
+  
+      restar() {
+        this.resultado = this.x1 - this.x2
+        this.imprimir()      
+      }
+  
+      multiplicar() {
+        this.resultado = this.x1 * this.x2
+        this.imprimir()      
+      }
+   
+      dividir() {
+        this.resultado = this.x1 / this.x2
+        this.imprimir()      
+      }
+  
+      imprimir() {
+        console.log(this.resultado)
+      }
+    }
+
+    const calculadora1 = new Calculadora(100, 20)
+    calculadora1.sumar()
+    calculadora1.restar()
+    calculadora1.multiplicar()
+    calculadora1.dividir() 
+
+    
+  
+    class CalculadoraCientifica extends Calculadora {
+      cuadrado() {
+        this.resultado = this.x1 * this.x1
+        this.imprimir()
+      }
+  
+      raizCuadrada() {
+        this.resultado = Math.sqrt(this.x1)
+        this.imprimir()
+      }
+    }
+  
+    const calculadoraCientifica1 = new CalculadoraCientifica(6, 2)
+    calculadoraCientifica1.sumar()
+    calculadoraCientifica1.restar()
+    calculadoraCientifica1.cuadrado()
+    calculadoraCientifica1.raizCuadrada()
+           
+        </pre>
+        <pre id="pre16bb">
+
+          class Persona {
+            constructor(nombre, edad) {
+              this.nombre = nombre
+              this.edad = edad
+            }
+            nombre(){return this.nombre = this.nombre}
+            edad(){return this.edad = this.edad}
+        
+            imprimir() {
+              console.log(`Nombre: ${this.nombre}`)
+              console.log(`Edad: ${this.edad}`)
+            }    
+          }
+
+        // ----------------------------------------
+
+          class Empleado extends Persona {
+            constructor(nombre,edad,sueldo) {
+              super(nombre, edad)
+              this.sueldo = sueldo
+            }
+        
+            imprimir() {
+              super.imprimir()
+              console.log(`Sueldo: ${this.sueldo}`)      
+            }
+        
+            pagaImpuestos() {
+              if (this.sueldo>5000)
+                console.log(`${super.nombre()} debe pagar impuestos`)
+              else
+                console.log(`${super.nombre()} no debe pagar impuestos`)      
+            }
+          }     
+                      
+          const empleado1=new Empleado('Juan', 44, 7000)
+          empleado1.imprimir()
+          empleado1.pagaImpuestos()
+
+        </pre>
+    </div> 
+    <div> <!--  getters & setters -->
+        <p onclick="toggle14()">15.-  getters & setters </p>
+
+        <pre id="pre17">
+
+            In JavaScript we now have the possibility of defining setters that are methods
+            that establish a value to a property and getters that are methods that retrieve a value.
+
+            For the definition of setters and getters we have the set and get keywords.
+            
+            Defining properties with set and get allow us to better encapsulate our class.
+            
+            We will see with a simple example the syntax to define a property defining its setter and getter.
+
+            <hr>
+           
+            class Dado {
+                constructor() {
+                  this._valor=1
+                }
+                
+                get valor() {
+                  return this._valor
+                }
+                
+                set valor(v) {
+                  this._valor=v
+                }
+                
+                imprimir() {
+                  console.log(this.valor)
+                }
+              }
+              
+              const dado1=new Dado()
+              dado1.imprimir()
+              dado1.valor=6
+              dado1.imprimir() 
+            
+        </pre>
+        <pre id="pre17a">
+        
+          class Persona {
+            constructor(nombre,_edad) {
+              this.nombre=nombre
+              this._edad=_edad
+            }
+        
+            get edad() {
+              return this._edad
+            }
+            
+            set edad(edad) {
+              if (edad>=0)
+                this._edad=edad
+              else
+              throw "La edad no puede ser negativa"
+            }
+            
+            imprimir() {
+              console.log(`Nombre:${this.nombre} y Edad:${this.edad}`)
+            }
+          }
+          
+          const persona1=new Persona('Raul')
+          persona1.edad=43
+          persona1.imprimir()
+          
+        </pre>
+        <pre id="pre17b">
+
+            class Dado {
+                constructor() {
+                  this._valor=1
+                }
+                
+                get valor() {
+                  return this._valor
+                }
+                
+                set valor(v) {
+                  if (v>=1 && v<=6 && v%1===0)
+                    this._valor=v
+                  else
+                    throw "Error en asignación de valor del dado" 
+                }
+                
+                imprimir() {
+                  console.log(this.valor)
+                }
+              }
+              
+              const dado1=new Dado()
+              dado1.imprimir()
+              dado1.valor=5
+              dado1.imprimir()
+              
+        </pre>
+    </div> 
+    <div> <!--  static methods -->
+        <p onclick="toggle15()">16.-  static methods </p>
+
+        <pre id="pre18">
+
+            With this new JavaScript update we have the ability to define static methods in a class.
+
+            A static method belongs to the class and not to an instance or object of a class. 
+            To call a static method later, we do it directly by preceding the name of the class.
+            
+            They are used to define functionalities that belong to a class but do not depend 
+            on instances of that class.
+            
+            Static methods cannot access class attributes using this.
+            
+        </pre>
+        <pre id="pre18a">
+        
+            class Matematica {
+                static mayor(v1,v2) {
+                  if (v1>v2)
+                    return v1
+                  else
+                    return v2
+                }
+            
+                static menor(v1,v2) {
+                  if (v1< v2)
+                    return v1
+                  else
+                    return v2
+                }
+            
+                static aleatorio(inicio, fin) {
+                  return Math.trunc((Math.random()*(fin+1-inicio))+inicio)
+                }
+              }
+              
+              let x1=Matematica.aleatorio(1,10)
+              let x2=Matematica.aleatorio(1,10)
+              console.log(`El mayor entre ${x1} y ${x2} es ${Matematica.mayor(x1,x2)}`)
+              console.log(`El menor entre ${x1} y ${x2} es ${Matematica.menor(x1,x2)}`)
+               
+        </pre>
+        <pre id="pre18b">
+
+            class Fecha {
+                static retornarMes(mes) {
+                  switch (mes) {
+                    case 1: return 'Enero'
+                    case 2: return 'Febrero'
+                    case 3: return 'Marzo'
+                    case 4: return 'Abril'
+                    case 5: return 'Mayo'
+                    case 6: return 'Junio'
+                    case 7: return 'Julio'
+                    case 8: return 'Agosto'
+                    case 9: return 'Septiembre'
+                    case 10: return 'Octubre'
+                    case 11: return 'Noviembre'
+                    case 12: return 'Diciembre'        
+                  }
+                }
+            
+                static fechaCompleta() {
+                  const fecha=new Date()
+                  return `${fecha.getDate()}-${fecha.getMonth()+1}-${fecha.getFullYear()}`
+                }
+              }
+            
+              console.log(`La fecha actual es ${Fecha.fechaCompleta()}`)
+              console.log(Fecha.retornarMes(12))
+              
+        </pre>
+    </div> 
+</body>
+</html>
+

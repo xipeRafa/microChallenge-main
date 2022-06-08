@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STRINGS</title>
+ 
+
+</head>
+
+<link rel="stylesheet" href="DOM/style.css">
+<body>
+
+<h1>STRINGS & NUMBERS</h1>
+
+    <a href="https://www.w3schools.com/jsref/jsref_obj_string.asp"
+             target="_blank"> Strings →</a>
+    <br>
+    <a href="https://jsbin.com/yikebexoko/edit?html,js,console,output"
+             target="_blank"> JS bin →</a>
+
+
+    <div>  <!-- 1.- Intro -->
+    <p id="div0">1.- Intro</p>
+
+        <pre>
+
+
+            let string = 'jiji'
+
+            console.log('The first character is: ' + string.charAt(0)) or: string[0]
+          
+            console.log('The first 3 characters are: ' + string.substring(0,3))
+          
+            console.log('The string converted to uppercase is: ' + string.toUpperCase())
+          
+            console.log('The string converted to lowercase is: ' + string.toLowerCase())
+          
+          
+            if (string.indexOf('hello')!= -1){
+                  console.log('The substring -hello- was entered')
+            }else{
+                  console.log('The substring -hello- was NOT entered')
+            }
+
+
+            Strings can be created as primitives, from string literals, 
+            or as objects, using the String() constructor:
+
+        </pre>
+        <pre>
+
+          
+            return 'cat'[1] // returns "a"
+
+            Cuando se usa la notación entre corchetes para acceder a los caracteres,
+            no se puede intentar eliminar o asignar un valor a estas propiedades.
+
+            Las propiedades involucradas no se pueden escribir ni configurar. 
+            (Ve Object.defineProperty() para más información).
+
+            <hr>
+            let a = 'a'
+            let b = 'b'
+
+            if (a < b) { // true
+                console.log(`${a} es menor que ${b}`)
+            } else if (a > b) {
+                console.log(a + ' es mayor que ' + b)
+            } else {
+                console.log(`${a} y ${b} son iguales`)
+            }
+
+            <hr>
+
+            let prim = 'foo'
+            let obj = new String(prim)
+            
+            console.log(typeof prim) // Logs "string"
+            console.log(typeof obj)  // Logs "object"
+            
+            <hr>
+            
+            let s1 = '2 + 2'              // creates a string primitive
+            let s2 = new String('2 + 2')  // creates a String object
+
+            console.log(eval(s1))         // returns the number 4
+            console.log(eval(s2))         // returns the string "2 + 2"
+
+            <hr>
+
+            A String object can always be converted to its primitive 
+            counterpart with the valueOf() method.
+
+            Un objeto String siempre se puede convertir a su 
+            contraparte primitiva con el método valueOf()
+
+            console.log(eval(s2.valueOf()))  // returns the number 4
+            
+
+        </pre>
+    </div>  
+    <div>  <!-- 2.- shortcuts -->
+        <p id="div1">2.- shortcuts</p>
+
+        <pre>
+
+
+            const id = document.getElementById.bind(document)
+
+            const qs = document.querySelector.bind(document)
+            const all = document.querySelectorAll.bind(document)
+
+            const cl = console.log
+
+<hr>
+            const fontSize = (word) => {
+                let str = word.fontsize(12)
+                id('demo').innerHTML = str; 
+                cl(word)
+            }
+         
+            fontSize('jijji'); 
+
+        </pre>
+        <pre>
+          
+            const cl = console.log 
+            
+            cl('hello')  // hello
+
+            function consoleLog(styles) {
+                return function a(str) {
+                  console.log(`%c ${str} `, styles)
+                }
+            }
+              
+            const l = consoleLog('background: red; color:white; padding:10px; font-size:22px;')
+         </pre>    
+    </div>  
+    <div>  <!-- 3.- String Methods -->
+        <p id="div2">3.- String Methods </p>
+
+        <pre>
+
+    All string methods return a new value. They do not change the original variable.
+
+            
+    Method	        Description
+<hr>
+    charAt()	   Returns the character at the specified index (position)
+
+    charCodeAt()   Returns the Unicode of the character. String.charCodeAt()
+
+    concat()       Joins two or more strings, and returns a new joined strings
+
+    endsWith()	   Checks whether a string ends with specified string/characters
+
+    fromCharCode() let text = String.fromCharCode(72, 69, 76, 76, 79) // "HELLO"
+
+    includes()	   Checks whether a string contains the specified string/characters
+<hr>
+    indexOf()	   Returns the position of the first found occurrence of a specified value in a string
+
+    lastIndexOf()  Returns the position of the last found occurrence of a specified value in a string
+
+    localeCompare() Compares two strings in the current locale 
+                    
+                    -1 if the reference string is sorted before the compareString
+                     0 if the two strings are equal
+                     1 if the reference string is sorted after the compareString
+
+    match()  Searches a string for a match against a regular expression, and returns the matches
+
+                    let str = "The rain in SPAIN stays mainly in the plain";
+                    str.match(/ain/g)   // ain,ain,ain
+
+    repeat()  Returns a new string with a specified number of copies that you need
+
+   </pre>
+   <pre>
+
+
+    replace()	    Searches a string for a specified value, or a regular expression,
+                    var.replace([replace it],[add this one])
+
+    search()	    Searches a string for a specified value, or regular expression, returns the position
+        
+    slice()         Extracts a part of a string and returns a new string
+        
+    split()         Splits a string into an array of substrings
+        
+    startsWith()    Checks whether a string begins with specified characters
+        <hr>
+    substr()	    Extracts the characters from a string, beginning at a specified start position, 
+                    and through the specified number of character (no recomended)
+        
+    substring()	    Extracts the characters from a string, between two specified indices (no recomended)
+        
+    toLowerCase()   Converts a string to lowercase letters
+        
+    toString()	    Returns the value of a String object
+        
+    toUpperCase()   Converts a string to uppercase letters
+        <hr>
+    trim()	    Removes whitespace from both ends of a string
+        
+    valueOf()	    Returns the primitive value of a String object
+        
+    toLocaleUpperCase()	Converts a string to uppercase letters, according to the host's locale
+        
+    toLocaleLowerCase() Converts a string to lowercase letters, according to the host's locale
+
+    </pre>    
+    </div> 
+    <div>  <!-- String HTML Wrapper Methods  -->
+        <p id="div3">4.- String HTML Wrapper Methods </p>
+
+        <pre>
+
+
+          let txt = "Hello World!"
+
+
+            txt.big()         < big>Hello World!< /big>
+       
+            txt.small()       < small>Hello World!< /small>
+
+            txt.bold()        < b>Hello World!< /b>
+<hr>
+            txt.italics()            < i>Hello World!< /i>
+
+            txt.fixed()              < tt>Hello World!< /tt>  
+
+            txt.strike()             < strike>Hello World!< /strike>  
+
+            txt.fontcolor("green")   < font color="green">Hello World!< /font> 
+
+<hr>
+            txt.fontsize(6)     < font size="4">Hello World!< /font>
+
+            txt.sub()           < sub>Hello World!< /sub>  
+
+            txt.sup()           < sup>Hello World!< /sup>
+
+            txt.link("https://www.w3schools.com")    < a href="https://www.w3schools.com">Hello World!< /a>   
+
+        </pre>
+        <pre>
+
+
+            const fontSize = (word) => {
+                let str = word.fontcolor("green")
+                document.getElementById('demo').innerHTML = str; 
+                console.log(word)
+            }
+         
+            fontSize('Hello World!'); 
+
+            Output
+            < font color="green">Hello World!< /font>
+
+        </pre>
+
+    </div>  
+
+
+</body>
+
+<script>
+let divs = document.body.querySelectorAll('div').length; 
+
+const toggle = (evt) => {
+    let iidd = evt.target.id
+    let son = document.getElementById(iidd)
+    son.nextElementSibling.classList.toggle("display")
+    son.nextElementSibling.nextElementSibling.classList.toggle("display")
+}
+
+document.addEventListener('click', toggle)
+
+
+</script>
+</html>

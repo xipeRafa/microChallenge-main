@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS FUNCTIONAL</title>
+
+</head>
+
+<link rel="stylesheet" href="DOM/style.css">
+<body>
+
+    <h1>FUNCTIONAL PROGRAMING</h1>
+
+    <div>  <!-- Introduction -->
+        <p id="div0">Introduction to Functional Programming</p>
+
+        <pre>
+
+            This is how most of us were taught to program by default (imperatively):
+
+            const numbers = [1, 2, 3, 4]
+            let doubled = []
+
+            for(let i=0; i < numbers.length; i++){
+                doubled.push(numbers[i]*2)
+            }
+
+            console.log(doubled) 
+            
+            Output
+            
+            [2, 4, 6, 8]
+        </pre>
+        <pre>
+
+            This is how it would be done declaratively (using functional programming):
+          
+            const numbers = [1, 2, 3, 4]
+            const doubled = numbers.map(n => n*2)
+
+            console.log(doubled) 
+            
+            Output
+            
+            [2, 4, 6, 8]
+        </pre>
+    </div>  
+    <div>  <!-- JavaScript tools -->
+        <p id="div1">JavaScript tools</p>
+
+        <pre>
+
+            - Immutability
+            - Use pure functions.
+            - Use of higher order functions.
+            - Use of currying.
+            - Composition of functions.
+        </pre>   
+        <pre>
+
+            map: Result preserves the shape of the input argument, probably with a different type.
+
+            filter: The result will have the same shape as the input argument, probably shorter.
+
+            reduce: The result can be completely transformed.
+
+
+            [1, 2, 3].map(n => n+1)      // => [2, 3, 4]
+            
+            [1, 2, 3].filter(n => n>1)   // => [2, 3]
+            
+            [1, 2, 3].reduce((acc, n) => acc + n, 0)
+            // 0 + 1 => 1
+            // 1 + 2 => 3
+            // 3 + 3 => 6
+            // => 6  
+        
+
+            Higher-order functions are those that take one or more functions as
+            an argument or return functions as a result. They interest us 
+            because they allow us to reuse the way we execute other functions.
+
+            the map function is defined to receive a function with the 
+            signature function (currentValue, index, array)
+
+            const result = ["1", "2", "3"].map((item) => parseInt(item))
+            console.log(result)
+        </pre> 
+    </div>  
+    <div>  <!-- map -->
+        <p id="div2">map</p>
+        <pre>
+
+            const array1 = [1, 4, 9, 16]
+
+            const map1 = array1.map((element, index, array) => {
+                    console.log('index:', index, 'element:', element, 'array1:', array)
+                    
+            })
+
+            Output
+
+            > "index:" 0 "element:" 1 "array1:" Array [1, 4, 9, 16]
+            > "index:" 1 "element:" 4 "array1:" Array [1, 4, 9, 16]
+            > "index:" 2 "element:" 9 "array1:" Array [1, 4, 9, 16]
+            > "index:" 3 "element:" 16 "array1:" Array [1, 4, 9, 16]
+
+            <hr>
+
+            const objects = [{id:'1', name:'aaa', price: 100},
+                             {id:'2', name:'bbb', price: 200},
+                             {id:'3', name:'ccc', price: 300}]
+
+            const idObject = objects.map(object => object.id)
+
+            console.log('ids:', idObject)
+
+            
+
+            // or you can use:
+
+            const idObject2 = objects.map( ({id}) => id ) 
+            
+            console.log('ids2:', idObject2) 
+
+        </pre>
+
+        <pre>
+
+              function returnInt(element) {
+                return parseInt(element, 10)
+              }
+              
+              ['1', '2', '3'].map(returnInt) // [1, 2, 3]
+              // Actual result is an array of numbers (as expected)
+              
+              // Same as above, but using the concise arrow function syntax
+              ['1', '2', '3'].map( str => parseInt(str) )
+              
+              // A simpler way to achieve the above, while avoiding the "gotcha":
+              ['1', '2', '3'].map(Number)  // [1, 2, 3]
+              
+              // But unlike parseInt(), Number() will also return a float or (resolved) exponential notation:
+              ['1.1', '2.2e2', '3e300'].map(Number)  // [1.1, 220, 3e+300]
+              
+              // For comparison, if we use parseInt() on the array above:
+              ['1.1', '2.2e2', '3e300'].map( str => parseInt(str) ) // [1, 2, 3]
+        
+              <hr>
+           
+            When not to use map()
+
+            Since map builds a new array, using it when you aren't using the returned 
+            array is an anti-pattern use forEach or for...of instead.
+
+            You shouldn't be using map if:
+
+            you're not using the array it returns and/or
+            you're not returning a value from the callback.
+
+            map does not mutate the array on which it is called 
+            (although callbackFn, if invoked, may do so).
+
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map"
+             target="_blank">see the docs →</a>
+        </pre>    
+    </div> 
+    <div>  <!-- filter -->
+        <p id="div3">filter</p>
+
+        <pre>
+
+        const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present']
+
+            const result = words.filter(word => word.length > 6)
+            console.log(result)
+
+            output: 
+            Array ["exuberant", "destruction", "present"]
+
+            <hr>
+
+            const result2 = words.filter((word, index) => {
+                console.log(index, word)
+            })
+
+            output:
+            > 0 "spray"
+            > 1 "limit"
+            > 2 "elite"
+            > 3 "exuberant"
+            > 4 "destruction"
+            > 5 "present"
+
+            <hr>
+
+            const objects = [{id:'1', name:'aaa', price: 100},
+                             {id:'2', name:'bbb', price: 200},
+                             {id:'3', name:'ccc', price: 300}]
+
+            const lowCost = object => object.price < 201
+           const highCost = object => !lowCost(object)                  
+
+            const lowCostObjects = objects.filter(lowCost)
+           const highCostObjects = objects.filter(highCost)
+
+           console.log(lowCostObjects)
+           console.log(highCostObjects)
+
+           <hr>
+
+           Remove repeating items:
+
+           const array2 = [5, 22, 11, 5, 4, 5, 5, 1]
+
+           const array2X = array2.filter((el, place, array2) => {
+               return place === array2.indexOf(el)
+           })
+
+           console.log(array2X)
+
+           
+        </pre>
+        <pre>
+
+        Filtering out all small values
+
+            const isBigEnough = value => value >= 10
+            let arr = [12, 5, 8, 130, 44]
+            let filtered = arr.filter(isBigEnough)
+
+            console.log(filtered)
+
+            Output
+            > Array [12, 130, 44]
+
+        let words = ['spray', 'limit', 'exuberant', 'destruction','elite', 'present']
+
+            const modifiedWords = words.filter( (word, index, arr) => {
+                 return word[index+2]  //delete the last 2 items
+            })
+            console.log(modifiedWords)  
+            
+            Output
+            > Array ["spray", "limit", "exuberant", "destruction"]
+
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter#examples"
+            target="_blank">see the docs →</a>
+        </pre>
+       
+    </div>  
+    <div> <!-- reduce -->
+        <p id="div4">reduce</p>
+        <pre>
+  
+            const array1 = [1, 2, 3, 4]
+            const reducer = (accumulator, currentValue) => accumulator + currentValue
+            
+            // 1 + 2 + 3 + 4
+            console.log(array1.reduce(reducer))
+            output: 10
+            
+            // 1 + 2 + 3 + 4 + 5
+            console.log(array1.reduce(reducer, 5))
+            output: 15
+
+            <hr>
+            let total = [ 0, 1, 2, 3 ].reduce(
+              ( accumulator, currentValue ) => accumulator + currentValue, 1
+            )
+            console.log(total)
+            output: 7
+        </pre>
+        <pre>
+
+            Sum of values in an object array
+
+            let initialValue = 0
+            let sum = [{x: 1}, {x: 2}, {x: 3}]
+            let sumReduce = sum.reduce((accumulator, currentValue, position, sum) => accumulator + currentValue.x, initialValue)
+          
+            console.log(sumReduce) 
+            console.log(sum) 
+
+            output: 6
+
+            <hr>
+          
+            const nums = [11, 22, 33, 44, 55, 66, 77]
+
+            const x2 = (accumulator, num) => [...accumulator, num * 2]
+             
+            const double = nums.length > 0 ? nums.reduce(x2, []) : 0
+
+            console.log('double:', double)
+            console.log('nums:', nums) // no mutation in the original array
+
+
+
+        <hr>
+
+            Remove duplicate items in an array (reduce)
+
+            let myArray = ['a', 'b', 'a', 'b', 'c', 'e', 'e', 'c', 'd', 'd', 'd', 'd']
+            let myArrayWithNoDuplicates = myArray.reduce(function (accumulator, currentValue) {
+              if (accumulator.indexOf(currentValue) === -1) {
+                accumulator.push(currentValue)
+              }
+              return accumulator
+            }, [])
+
+            console.log(myArrayWithNoDuplicates)
+
+            output: Array ["a", "b", "c", "e", "d"]
+            
+            <hr>
+            or:
+            let array = ['a', 'b', 'a', 'b', 'c', 'e', 'e', 'c', 'd', 'd', 'd', 'd']
+            let arrayWithNoDuplicates = Array.from(new Set(array))
+            console.log(arrayWithNoDuplicates)
+
+            output: Array ["a", "b", "c", "e", "d"]
+        </pre>
+    </div>
+    <div> <!-- Mix high order functions -->
+        <p id="div5">Mix high order functions</p>
+        <pre>
+  
+            const array1 = [1, 2, 3, 4]
+            const reducer = (accumulator, currentValue) => accumulator + currentValue
+            
+            // 1 + 2 + 3 + 4
+            console.log(array1.reduce(reducer))
+            output: 10
+            
+            // 1 + 2 + 3 + 4 + 5
+            console.log(array1.reduce(reducer, 5))
+            output: 15
+
+            <hr>
+            let total = [ 0, 1, 2, 3 ].reduce(
+              ( accumulator, currentValue ) => accumulator + currentValue, 1
+            )
+            console.log(total)
+            output: 7
+    <hr>
+
+            Sum of values in an object array
+
+            let initialValue = 0
+            let sum = [{x: 1}, {x: 2}, {x: 3}]
+            let sumReduce = sum.reduce((accumulator, currentValue, position, sum) => accumulator + currentValue.x, initialValue)
+          
+            console.log(sumReduce) 
+            console.log(sum) 
+
+            output: 6
+
+            <hr>
+          
+            const nums = [11, 22, 33, 44, 55, 66, 77]
+
+            const x2 = (accumulator, num) => [...accumulator, num * 2]
+             
+            const double = nums.length > 0 ? nums.reduce(x2, []) : 0
+
+            console.log('double:', double)
+            console.log('nums:', nums) // no mutation in the original array
+
+
+
+        </pre>
+        <pre>
+
+            Remove duplicate items in an array (reduce)
+
+            let myArray = ['a', 'b', 'a', 'b', 'c', 'e', 'e', 'c', 'd', 'd', 'd', 'd']
+            let myArrayWithNoDuplicates = myArray.reduce(function (accumulator, currentValue) {
+              if (accumulator.indexOf(currentValue) === -1) {
+                accumulator.push(currentValue)
+              }
+              return accumulator
+            }, [])
+
+            console.log(myArrayWithNoDuplicates)
+
+            output: Array ["a", "b", "c", "e", "d"]
+            
+            <hr>
+            or:
+            let array = ['a', 'b', 'a', 'b', 'c', 'e', 'e', 'c', 'd', 'd', 'd', 'd']
+            let arrayWithNoDuplicates = Array.from(new Set(array))
+            console.log(arrayWithNoDuplicates)
+
+            output: Array ["a", "b", "c", "e", "d"]
+
+
+       <hr>
+          let arr = [
+                      { name: 'ball', points: 2 },
+                      { name: 'coin', points: 3 },
+                      { name: 'candy', points: 4}
+                    ]
+
+          const sumArray = array => array.map(el => el.points).reduce((acc, curr) => (acc + curr))
+
+          sumArray(arr)
+
+        </pre>
+    </div>
+
+
+    <br/>
+    <div> <!-- forEach -->
+        <p id="div6">forEach</p>
+        <pre>
+
+         forEach()
+
+         Essentially the non-pure version of map(), forEach() iterates over an array and
+         applies a callback() function over each item. However, it doesn’t return anything.
+         It’s a cleaner way of performing a for loop.
+         
+         <hr>
+
+        for ([expresion-inicial] [condicion] [expresion-final])sentencia
+
+                let arr = [1,2,3,4,5] 
+                
+                for(i=0; i < arr.length; i++){
+                    console.log(arr[i])
+                }
+
+            <hr>
+
+            const array1 = ['a', 'b', 'c']
+
+            array1.forEach(element => console.log(element))
+
+             output:
+
+                     "a"
+                     "b"
+                     "c"
+        </pre>
+        <pre>
+
+        FOR IN    
+          
+            const object = {
+                name: 'rene',
+                age: 22,
+                country: 'USA'
+            }
+              
+              for (const property in object) {
+                 console.log(`key: ${property}, value: ${object[property]}`)
+              }
+
+              > "key: name, value: rene"
+              > "key: age, value: 22"
+              > "key: country, value: USA"
+
+              // for in is just to objects
+      
+              <hr>
+
+        FOR OF
+
+                let iterable = [10, 20, 30]
+
+                for (let value of iterable) {
+                  value += 1
+                  console.log(value)
+                }
+
+                Output
+
+                // 11
+                // 21
+                // 31
+
+                <a href="https://developer.mozilla.org/es/docs/orphaned/Web/JavaScript/Reference/Statements/for...of" target="_blank">see docs →</a>
+        </pre>
+    </div>  
+    <div> <!-- composicion -->
+        <p id="div7"> Composicion </p>
+        <pre>
+ 
+
+          const original = [80, 3, 14, 22, 30]
+
+            let aux = original.filter((value) => value%2 === 0)
+            aux = aux.filter((value) => value > 20)
+            const result = aux.reduce((accumulator, value) => accumulator + value)
+
+            console.log(result) // 132
+       
+            <hr>
+           
+    If we pull ES6 we can apply the chain pattern:
+
+          const original = [80, 3, 14, 22, 30]
+
+            const result = original
+                .filter((value) => value%2 === 0)
+                .filter((value) => value > 20)
+                .reduce((accumulator, value) => accumulator + value)
+
+            console.log(result) // 132 
+
+            <hr>
+
+    Wrap this in functions:
+
+          const original = [80, 3, 14, 22, 30]
+
+            const onlyPairElements = (values) => values.filter((value) => value%2 === 0)
+
+            const filterGreaterThan = (values) => (max) => values.filter((value) => value > max)
+
+            const sumAllValues = (values) => values.reduce((accumulator, value) => accumulator + value)
+
+            
+             const result = sumAllValues(
+                                filterGreaterThan(
+                                    onlyPairElements(original)
+                                )(20)
+                            )
+            
+
+            console.log(result) // 132   
+
+            <hr>
+            
+    This makes this code unreadable, Ramda to the rescue.
+
+        We are going to use Pipe this function allows us to chain functions,
+        the output of one serves as input for the other.   
+        
+          const original = [80, 3, 14, 22, 30]
+
+            const result = R.pipe(
+              R.filter((value) => value%2 === 0),
+              R.filter((value) => value > 20),  
+              R.sum,
+            )(original)
+        
+            console.log(result) // 132
+
+            <hr>
+        
+    And why do we use things like R.filter and R.sum instead of what ES6 brings for arrays?
+
+          const original = [80, 3, 14, 22, 30]
+
+            const filterOnlyPairElements = (values) => R.filter((value) => value%2 === 0, values)
+            const filterGreaterThan = R.curry((max,values) => R.filter((value) => value > max, values))
+            const sumAllValues = (values) => R.sum(values)
+
+            const result = R.pipe(
+              filterOnlyPairElements,
+              filterGreaterThan(20),  
+              sumAllValues,
+            )(original)
+
+            console.log(result) // 132
+
+        </pre>
+        <pre> 
+        
+    we can use the filter and reduce from ES6, being as follows:
+
+        const original = [80, 3, 14, 22, 30]
+
+        const filterOnlyPairElements = (values) => values.filter((value) => value%2 === 0)
+        const filterGreaterThan = R.curry((max,values) => values.filter((value) => value > max))
+        // Or const filterGreaterThan = (max) => (values) => values.filter((value) => value > max)
+        const sumAllValues = (values) => values.reduce((accumulator, value) => accumulator + value)
+        
+        const result = R.pipe(
+          filterOnlyPairElements,
+          filterGreaterThan(20),  
+          sumAllValues,
+        )(original)
+        
+        console.log(result) // 132
+
+        <hr>
+
+    The pipe function allows us to pass as many callbacks and input parameters as we want such that:
+
+        const result = R.pipe(
+            callback1,
+            callback2,
+            callback3,
+            callback4,
+            ...
+            )(param1, param2, ...)
+
+            <hr>
+
+    But even so, if we don't want to install Ramda or lodash and we want 
+    to get the same result applied to the previous array, we could do something like:
+
+        const original = [80, 3, 14, 22, 30]
+
+        const filterOnlyPairElements = (values) => values.filter((value) => value%2 === 0)
+        const filterGreaterThan = (max) => (values) => values.filter((value) => value > max)
+        const sumAllValues = (values) => values.reduce((accumulator, value) => accumulator + value)
+        
+        const pipe = (...callbacks) => (array) => (
+              callbacks.reduce((acc, curr) => (
+                  curr(acc)
+              ), array)
+          )
+        
+        const result = pipe(
+            filterOnlyPairElements,
+            filterGreaterThan(20),
+            sumAllValues,
+        )(original)
+        
+        console.log(result) // 132
+        </pre>
+    </div>
+    <div> <!-- closures -->
+        <p id="div8">Closures</p>
+        <pre>
+          
+            
+            function error(str) {
+                console.log(`%c Error: ${str} `, 'background: red color: white')
+              }
+              
+            function warning(str) {
+                console.log(`%c Warning: ${str} `, 'background: orange color: white')
+              }
+              
+            function success(str) {
+                console.log(`%c success: ${str} `, 'background: green color: white')
+              }
+
+              error('error text')
+              warning('warning text')
+              success('success text')  
+        </pre>
+        <pre>
+
+            closure:
+
+            function messages(typeM, styles) {
+                return function message(str) {
+                  console.log(`%c ${typeM}: ${str} `, styles)
+                }
+              }
+              
+              const error = messages('Error', 'background: red')
+              const warning = messages('Warning', 'background: orange')
+              const success = messages('Success', 'background: green')
+              
+              error('error text')
+              warning('warning text')
+              success('success text')
+
+              <hr>
+                or:
+
+              function messages(typeM, styles) {
+                return function message(str) {
+                  console.log(`%c ${typeM}: ${str} `, styles)
+                }
+              }
+              
+              messages('Error', 'background: red')('error text')
+              messages('Warning', 'background: orange')('warning text')
+              messages('Success', 'background: green')('success text')
+
+              <hr>
+              let a = 'hola'
+
+              function global(){
+                   const b = ' que'
+              
+                  function local(){
+                     const c = ' tal'
+                     return a + b + c
+                  }
+              
+               return local
+              }
+              
+              const closure = global()
+
+              closure()
+
+              "hola que tal"
+
+              <hr>
+              const contador = (function(){
+    
+                let _cont=0
+          
+                  function incrementar(){
+                      return _cont++
+                  }
+          
+                  function decrementar(){
+                      return _cont--
+                  }
+                  
+                  function valor(){
+                      return _cont  
+                  }
+               
+                  return{
+                      incrementar,
+                      decrementar,
+                      valor 
+                  }
+              })()
+          
+              contador.incrementar()
+              contador.decrementar()
+              contador.incrementar()
+              contador.valor()
+
+              1
+        </pre>
+    </div>  
+    <div> <!-- currying -->
+        <p id="div9">Currying</p>
+        <pre>
+ 
+            
+            const sum = (a, b) => {
+                return a + b
+            }
+
+            sum(2, 2)
+             
+            <hr>
+
+            const sumCurrying = (a) => {
+                return (b) => {
+                return a + b
+              }
+            }
+
+            const res = sumCurrying(1)(2)
+            console.log(res)
+
+            <hr>
+
+
+          const sumCurrying = (a) => {
+              console.log(a)
+            return function(b) {
+                 console.log(b)
+               return function(c){
+                    console.log(c)
+                      return a + b + c
+              }
+            }
+          }
+
+          const res = sumCurrying(1)(2)(3)
+          console.log(res)
+
+        </pre>
+        <pre> 
+
+            const sumCurryingS = (a) => (b) => (c) => a + b + c
+
+            sumCurryingS(1)(2)(3)
+
+            <hr>
+
+            const sumCurrying= (a) => (b) => a + b
+
+            const increment10 = sumCurrying(10)
+
+            const res = increment10(20)
+            
+            console.log(res)
+
+            Output
+            30
+
+        </pre>
+    </div>  
+    <div> <!-- Generator -->
+        <p id="div10">Generator </p>
+        <pre>
+
+        convert the code of a function into iterable code
+
+            function* iterable(){
+
+                yield 'hello 1'
+                console.log('hello from log')
+                yield 'hello 2'
+                yield 'hello 3'
+                console.log('hello again from log')
+                yield 'hello 4'
+                yield 'hello 5'
+            }
+             
+            let iterador = iterable()
+
+                console.log(iterador.next())
+                console.log(iterador.next())
+                console.log(iterador.next())
+                console.log(iterador.next())
+                console.log(iterador.next())
+
+                console.log(iterador.next())   //undefined done:true (true. is the end )
+                console.log(iterador.return(1)) // {value: 1, done: true}
+
+                Output
+
+                {value: "hello 1", done: false}
+                hello from log
+                {value: "hello 2", done: false}
+                {value: "hello 3", done: false}
+                hello again from log
+                {value: "hello 4", done: false}
+                {value: "hello 5", done: false}
+                {value: undefined, done: true}
+                {value: 1, done: true}
+        </pre>
+        <pre>
+            
+            function* iterable(){
+
+                yield 'hello 1'
+                console.log('hello from log')
+                yield 'hello 2'
+                yield 'hello 3'
+                console.log('hello again from log')
+                yield 'hello 4'
+                yield 'hello 5'
+            }
+             
+            let iterator = iterable()
+
+            for(let y of iterator){
+                console.log(y)
+            }
+
+       <hr>
+
+            function* iterable(){
+
+                yield 'hello 1'
+                console.log('hello from log')
+                yield 'hello 2'
+                yield 'hello 3'
+                console.log('hello again from log')
+                yield 'hello 4'
+                yield 'hello 5'
+            }
+
+            let arr = [...iterable()]
+            console.log(arr)
+
+            Output
+
+            hello from log
+            hello again from log
+            ["hello 1", "hello 2", "hello 3", "hello 4", "hello 5"]
+  <hr>
+
+            function* gen() {
+                while(true) {
+                  try {
+                     yield 42
+                  } catch(e) {
+                    console.log('Error caught!')
+                  }
+                }
+              }
+              
+              let g = gen()
+              g.next()
+              // { value: 42, done: false }
+              g.throw(new Error('Something went wrong'))
+              // "Error caught!"
+              // { value: 42, done: false }
+              
+        </pre>
+    </div>   
+    <div> <!-- IFEE -->
+        <p id="div11">IFEE</p>
+        <pre>
+
+            An IIFE (Immediately Invoked Function Expression)
+            This prevents accessing letiables within the IIFE idiom 
+            as well as polluting the global scope.
+
+            (function () {
+                statements
+              })()
+        </pre>
+        <pre>
+
+            An IIFE (Immediately Invoked Function Expression)
+            This prevents accessing letiables within the IIFE idiom 
+            as well as polluting the global scope.
+
+            (function () {
+                statements
+              })()
+        </pre>
+    </div> 
+    <div> <!-- Array.from() -->
+        <p id="div12">Array.from()</p>
+        <pre>
+          
+            console.log(Array.from('foo')) 
+            
+            output:
+            Array ["f", "o", "o"]
+
+            console.log(Array.from([1, 2, 3], x => x + 1)) 
+            
+            output:
+            Array [2, 4, 6]
+
+            let arr = 'hello'
+            Array.from(arr, (element, index) => { 
+                 console.log('index:', index, element + ' -') 
+            })
+            
+            index: 0 h -
+            index: 1 e -
+            index: 2 l -
+            index: 3 l -
+            index: 4 o -
+        </pre>
+        <pre>
+
+            Array from a Map
+            const map = new Map([[1, 2], [2, 4], [4, 8]])
+            Array.from(map)
+            // [[1, 2], [2, 4], [4, 8]]
+            
+            const mapper = new Map([['1', 'a'], ['2', 'b']])
+            Array.from(mapper.values())
+            // ['a', 'b']
+            
+            Array.from(mapper.keys())
+            // ['1', '2']
+
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from"
+            target="_blank">see the docs →</a>
+    <hr>
+
+            Sequence generator (range)
+
+            // Sequence generator function (commonly referred to as "range", e.g. Clojure, PHP etc)
+            const range = (start, stop, step) => Array.from({
+                 length: (stop - start) / step + 1
+            }, (_, i) => start + (i * step))
+
+            // Generate numbers range 0..4
+            range(0, 4, 1)
+            // [0, 1, 2, 3, 4]
+
+            // Generate numbers range 1..10 with step of 2
+            range(1, 10, 2)
+            // [1, 3, 5, 7, 9]
+
+            // Generate the alphabet using Array.from making use of it being ordered as a sequence
+            range('A'.charCodeAt(0), 'Z'.charCodeAt(0), 1).map(x => String.fromCharCode(x))
+            // ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", 
+            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+
+        </pre>
+    </div>   
+    <div> <!-- REST Parameters-->
+        <p id="div13">REST Parameters</p>
+        <pre>
+
+            RECEIVE UNLIMITED PARAMETERS IN A FUNCTION
+
+            function separarConComa1() {
+                let resultado = ''
+                for (let i = 0; i < arguments.length; i++) {
+                  if (resultado !== '') {
+                    resultado += ' + '
+                  }
+                  resultado += arguments[i]
+                }
+                return resultado
+              }
+              separarConComa1('MEME', 'MEME', 'MEME')
+
+              NOTE: YOU CAN NOT USE ARGUMENTS(object) IN A AROW FUNCTION
+        </pre>
+        <pre>
+
+
+            const separador = (...strings) => {
+                let res = ''
+                    for(i=0; i < strings.length; i++){
+                        if(res !== ' '){
+                            res += ' + '
+                        }
+                    res += strings[i]
+                }
+                return res
+            }
+
+            separador('ff','ee','dd')
+
+            <hr>
+
+            const separarCon = (separator, ...strings) => 
+                strings.reduce((resultado, str) => {
+
+                if (resultado !== '') {
+                  resultado += separator
+                }
+              
+                return resultado + str
+            }, '')
+              
+            console.log(separarCon(' + ', 'Pablo', 'Laura', 'Juan'))
+
+        </pre>
+    </div> 
+    <div> <!-- 	ES6 - Map  -->
+        <p id="div14"> ES6 - Map </p>
+        <pre>
+
+            const mapa1 = new Map([
+            ["casa", "house"],
+            ["rojo", "red"],
+            ["auto", "car"]
+          ])
+      
+      for(let key of mapa1.keys()) {
+        console.log('key:', key)
+      } 
+      
+      for(let value of mapa1.values()) {
+        console.log('value:', value)
+      } 
+      
+      for(let [clave, value] of mapa1){
+          console.log('c&v:', clave + ' ' + value)
+      }
+
+      <hr>
+
+      get()
+
+      const mapa1 = new Map([["casa", "house"],
+                             ["rojo", "red"],
+                             ["auto", "car"]])
+
+    const palcastellano = prompt("Ingrese una palabra en castellano:", "")
+    console.log(`La traducción de ${palcastellano} es ${mapa1.get(palcastellano)}`)
+       
+    <hr>
+
+    size
+
+    const mapa1 = new Map([
+    ["casa", "house"],
+    ["rojo", "red"],
+    ["auto", "car"]])
+
+     mapa1.set("ventana","window")
+     console.log(mapa1.size)    // 4
+
+  <hr>
+
+  delete
+
+  const mapa1 = new Map([
+  ["casa", "house"],
+  ["rojo", "red"],
+  ["auto", "car"]])
+
+    mapa1.delete("casa")
+    console.log(mapa1.size)    // 2
+
+    <hr>
+
+    clear()
+
+    const mapa1 = new Map([
+    ["casa", "house"],
+    ["rojo", "red"],
+    ["auto", "car"]])
+
+        mapa1.clear()
+        console.log(mapa1.size)
+
+        <hr>
+
+        forEach()
+
+        const mapa1 = new Map([
+        ["casa", "house"],
+        ["rojo", "red"],
+        ["auto", "car"]
+      ])
+  
+      console.log("Claves y valores del mapa.")
+      mapa1.forEach((valor, clave) => console.log(`${clave}  ${valor}`))
+            
+        </pre>
+        <pre id="pre19a">
+
+            < div id="paises"> < /div>
+
+
+         addEventListener('DOMContentLoaded', inicio)
+
+         function inicio() {
+           const paises = new Map([
+             ["Argentina", 45000000],
+             ["España", 46000000],
+             ["Brasil", 190000000],
+             ["Urugual", 3400000]
+           ])
+     
+           let cadena = ''
+           for (let [pais, cantidad] of paises) {
+             cadena += `< li>${pais} => ${cantidad}< /li>`
+           }
+           document.getElementById("paises").innerHTML = cadena
+         }
+            
+        </pre>
+    </div> 
+    <div> <!-- ES6 - Set -->
+        <p id="div15">ES6 - Set</p>
+        <pre>
+
+            const conjunto1 = new Set()
+            conjunto1.add("C")
+            conjunto1.add("Pascal")
+            conjunto1.add("PHP")
+            conjunto1.add("Python")
+
+            console.log(conjunto1)
+
+        // Set(4) {"C", "Pascal", "PHP", "Python"}
+
+        <hr>
+        const conjunto1 = new Set(["C", "Pascal", "PHP", "Python"])
+        console.log(conjunto1)
+
+        // Set(4) {"C", "Pascal", "PHP", "Python"}
+
+        <hr>
+
+        const conjunto1 = new Set()
+
+        for (let x = 0 x < 10 x++){
+          conjunto1.add(parseInt(Math.random() * 50) + 1)
+          console.log(x)
+        }  
+
+        console.log(`La cantidad de números aleatorios distintos son ${conjunto1.size}`)
+
+        if (conjunto1.has(12))
+          console.log("Si se generó el número 12")
+        else
+          console.log("No se generó el número 12")  
+            
+        </pre>
+        <pre >
+
+            delete
+
+            const conjunto1 = new Set(["C", "Pascal", "PHP", "Python"])
+            console.log(conjunto1.size)  // 4
+            conjunto1.delete("Pascal")
+            console.log(conjunto1.size)  // 3
+
+            <hr>
+            const conjunto1 = new Set(["C", "Pascal", "PHP", "Python"])
+            for(let elemento of conjunto1)
+              console.log(`${elemento}`)
+
+              <hr>
+
+            forEach    
+
+            const conjunto1 = new Set(["C", "Pascal", "PHP", "Python"])
+            mapa1.forEach((elemento) => console.log(`${elemento}`))
+
+            <hr>
+
+            const feriados = new Set([ "1/1/2020",
+                                       "25/5/2020",
+                                       "25/12/2020" ])
+
+              const dia = parseInt(prompt("Ingrese día:", ""))
+              const mes = parseInt(prompt("Ingrese mes:", ""))
+              const año = parseInt(prompt("Ingrese año:", ""))
+
+              if (feriados.has(`${dia}/${mes}/${año}`))
+                console.log("La fecha corresponde a un feriado")
+                  else
+                console.log("La fecha no corresponde a un feriado")
+
+            </pre>
+    </div>   
+    <div> <!-- ES6 - WeakMap y WeakSet -->
+        <p id="div16"> ES6 - WeakMap y WeakSet </p>
+        <pre>
+
+            They are two objects with similar functionalities to Map and Set but with the ability for the JavaScript garbage collector to remove elements from them when it deems appropriate.
+
+            WeakSet: They can only store data of type object (this is logical because primitive data types cannot have the reference of more than one variable)
+            The references to objects in the WeakSet collection are weakly held, this means that if at some point during the execution of the algorithm the object references are lost, then the JavaScript garbage collector frees space from the WeakSet collection.
+            
+                const set1 = new WeakSet ()
+                let user1 = {
+                  name: "juan",
+                  points: 200
+                }
+                set1.add (user1)
+                console.log (set1.has (user1)) // true
+                user1 = null
+                ....
+       
+        </pre>
+        <pre>
+
+            Once the variable 'user1' is removed by setting null, the JavaScript "garbage collector" takes care of removing the item from the set1 object.
+            
+            WeakMap Only a value of type object can be stored in the map key. JavaScript takes care of removing elements from the map when they no longer have references to the object that acts as a key within the WeakMap.
+            
+            Annotations
+            WeakMap and WeakSet objects do not have the ability to go through their elements through the for of structure, nor can we know the number of elements.
+            
+            We can delete an element from the collection using the 'delete' method, but it does not have a method to delete all the elements.
+            
+            The use of these objects makes sense when we know that many objects that act as keys will be eliminated during the execution of the algorithm, otherwise it is convenient to use the Map and Set objects.
+
+        </pre>
+    </div>
+    <div> <!-- window.addEventListener -->
+        <p id="div17">window.addEventListener</p>
+        <pre>
+
+
+        document.addEventListener(event, function, useCapture) 
+
+          <a href="https://www.w3schools.com/jsref/dom_obj_event.asp" target="_blanck">DOM EVENTS >>></a>
+
+<hr>
+        window.onload = load 
+
+            function handleClick(){
+                console.log('a click')
+                document.removeEventListener('click', handleClick)
+            }
+
+            function load(){
+                console.log('window load')
+                document.addEventListener('click', handleClick)
+            }
+
+            <hr>
+            const element = document.querySelector(".class__name")
+
+            element.addEventListener("click", () => {
+	            console.log("clicked element")
+            })
+           
+        </pre>
+        <pre>
+
+            
+            < input type="button" id="boton0" name="boton0" value="0" class="boton">
+            < input type="button" id="boton1" name="boton1" value="1" class="boton">
+            < input type="button" id="boton2" name="boton2" value="2" class="boton">
+            < input type="button" id="boton3" name="boton3" value="3" class="boton">
+            < input type="button" id="boton4" name="boton4" value="4" class="boton">
+            < input type="button" id="boton5" name="boton5" value="5" class="boton">
+            < input type="button" id="boton6" name="boton6" value="6" class="boton">
+            < input type="button" id="boton7" name="boton7" value="7" class="boton">
+            < input type="button" id="boton8" name="boton8" value="8" class="boton">
+            < input type="button" id="boton9" name="boton9" value="9" class="boton">
+
+            < div id="resultado"></ div>
+
+            <hr>
+
+            const inicio = () => {
+
+                for (let x = 0; x <= 9; x++) {
+                    
+                   let b = document.getElementById('boton' + x)
+             
+                    b.addEventListener('click', presion, false) 
+                }
+            
+              }
+              
+              window.addEventListener('DOMContentLoaded', inicio, false)
+              
+              const presion = evt => {
+                  
+                  let r = document.getElementById('resultado')
+            
+                  r.innerHTML = r.innerHTML + evt.target.value + ' '
+            
+                  console.log('id:', evt.target.id)
+                  console.log('name:', evt.target.name)
+                  console.log('value:', evt.target.value)
+                  console.log('tagName:', evt.target.tagName)
+                  console.log('className:', evt.target.className)
+                              
+              }
+
+              Output
+
+              id: boton1
+              name: boton1
+              value: 1
+              className: boton
+    
+        </pre>
+    </div>
+    
+    <div> <!-- Global Objects -->
+        <p id="div18">Global Objects</p>
+        <pre>
+
+
+            Global Objects
+
+          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects" target="_blanck">Global Objects >>></a>
+
+          <hr>
+
+          let arr = ['a', 'b', 'c']
+
+          console.log(Object.keys(arr))
+          console.log(Object.values(arr))
+          console.log(Object.entries(arr))
+                     
+        </pre>
+        <pre>
+
+            
+           
+            
+          
+    
+        </pre>
+    </div> 
+
+
+
+
+    
+</body>
+<script>
+
+    let divs = document.body.querySelectorAll('div').length; 
+    
+    const toggle = (evt) => {
+        let iidd = evt.target.id
+        let son = document.getElementById(iidd)
+        son.nextElementSibling.classList.toggle("display")
+        son.nextElementSibling.nextElementSibling.classList.toggle("display")
+    }
+    
+    document.addEventListener('click', toggle)
+    
+    
+ </script>
+</html>
+

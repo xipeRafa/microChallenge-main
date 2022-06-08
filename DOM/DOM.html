@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<script>
+    
+    function toggle2(){
+        document.querySelector("#pre3").classList.toggle("display")
+    }
+    
+    function toggle3(){
+        document.querySelector("#pre5").classList.toggle("display")
+        document.querySelector("#pre6").classList.toggle("display")
+    }
+    
+       
+    function toggle4(){
+        document.querySelector("#pre7").classList.toggle("display")
+    }
+
+    function toggle5(){
+        document.querySelector("#pre8").classList.toggle("display")
+    }
+
+    function toggle6(){
+        document.querySelector("#pre9").classList.toggle("display")
+        document.querySelector("#pre9a").classList.toggle("display")
+    }
+
+    function toggle6a(){
+        document.querySelector("#pre9b").classList.toggle("display")
+    }
+
+    function toggle7(){
+        document.querySelector("#pre10").classList.toggle("display")
+        document.querySelector("#pre10a").classList.toggle("display")
+    }
+
+    function toggle8(){
+        document.querySelector("#pre11").classList.toggle("display")
+        document.querySelector("#pre11a").classList.toggle("display")
+    }
+
+    function toggle9(){
+        document.querySelector("#pre12").classList.toggle("display")
+        document.querySelector("#pre12a").classList.toggle("display")
+    }
+
+    function toggle11(){
+        document.querySelector("#pre14").classList.toggle("display")
+        document.querySelector("#pre14a").classList.toggle("display")
+        document.querySelector("#pre14b").classList.toggle("display")
+    }
+
+    function toggle12(){
+        document.querySelector("#pre15").classList.toggle("display")
+        document.querySelector("#pre15a").classList.toggle("display")
+        document.querySelector("#pre15b").classList.toggle("display")
+    }
+
+    function toggle13(){
+        document.querySelector("#pre16").classList.toggle("display")
+        document.querySelector("#pre16a").classList.toggle("display")
+        document.querySelector("#pre16b").classList.toggle("display")
+    }
+
+    function toggle14(){
+        document.querySelector("#pre17").classList.toggle("display")
+        document.querySelector("#pre17a").classList.toggle("display")
+        document.querySelector("#pre17b").classList.toggle("display")
+    }
+
+    function toggle15(){
+        document.querySelector("#pre18").classList.toggle("display")
+        document.querySelector("#pre18a").classList.toggle("display")
+        document.querySelector("#pre18b").classList.toggle("display")
+    }
+
+    function toggle16(){
+        document.querySelector("#pre19").classList.toggle("display")
+        document.querySelector("#pre19a").classList.toggle("display")
+        document.querySelector("#pre19b").classList.toggle("display")
+    }
+
+    function toggle17(){
+        document.querySelector("#pre20").classList.toggle("display")
+        document.querySelector("#pre20a").classList.toggle("display")
+        document.querySelector("#pre20b").classList.toggle("display")
+    }
+
+    function toggle18(){
+        document.querySelector("#pre21").classList.toggle("display")
+        document.querySelector("#pre21a").classList.toggle("display")
+        document.querySelector("#pre21b").classList.toggle("display")
+    }
+
+    function toggle19(){
+        document.querySelector("#pre22").classList.toggle("display")
+        document.querySelector("#pre22a").classList.toggle("display")
+        document.querySelector("#pre22b").classList.toggle("display")
+    }
+
+    function toggle20(){
+        document.querySelector("#pre23").classList.toggle("display")
+        document.querySelector("#pre23a").classList.toggle("display")
+        document.querySelector("#pre23b").classList.toggle("display")
+    }
+
+    function toggle21(){
+        document.querySelector("#pre24").classList.toggle("display")
+        document.querySelector("#pre24a").classList.toggle("display")
+        document.querySelector("#pre24b").classList.toggle("display")
+    }
+
+    function toggle22(){
+        document.querySelector("#pre25").classList.toggle("display")
+        document.querySelector("#pre25a").classList.toggle("display")
+        document.querySelector("#pre25b").classList.toggle("display")
+    }
+
+    function toggle23(){
+        document.querySelector("#pre26").classList.toggle("display")
+        document.querySelector("#pre26a").classList.toggle("display")
+        document.querySelector("#pre26b").classList.toggle("display")
+    }
+
+    function toggle24(){
+        document.querySelector("#pre27").classList.toggle("display")
+        document.querySelector("#pre27a").classList.toggle("display")
+        document.querySelector("#pre27b").classList.toggle("display")
+    }
+    
+    function toggle25(){
+        document.querySelector("#pre28").classList.toggle("display")
+        document.querySelector("#pre28a").classList.toggle("display")
+        document.querySelector("#pre28b").classList.toggle("display")
+    }
+
+    function toggle26(){
+        document.querySelector("#pre29").classList.toggle("display")
+    }
+
+</script>
+<script src="index.js"></script>
+<body>
+
+    <h1>JS DOM</h1>
+    <a href="https://jsbin.com/?html,js,console,output" target="_blank" >jsbin.com</a>
+
+   
+    <div>  <!-- childNodes  -->
+        <p onclick="toggle2()">childNodes</p>
+
+       
+        <pre id="pre3">
+
+         <section id="bloque">
+            <p>Este es el primer párrafo</p>
+            <p>Este es el segundo párrafo</p>
+            <p>Este es el tercer párrafo</p>
+         </section>
+
+         <input type="button" value="console" onClick="tipoNodo()"> 
+
+         < section id="bloque">
+            < p>Este es el primer párrafo< /p>
+            < p>Este es el segundo párrafo< /p>
+            < p>Este es el tercer párrafo< /p>
+         < /section>
+
+         < input type="button" value="tipo de Nodo" onClick="tipoNodo()">
+
+         <hr>
+         function tipoNodo() {
+
+            let lista = document.getElementById('bloque')
+          
+            for(let x=0; x< lista.childNodes.length-1; x++) {
+
+              if (lista.childNodes[x].nodeType==Node.TEXT_NODE){
+                console.log("Nodo tipo Texto")
+              }
+          
+              if (lista.childNodes[x].nodeType==Node.ELEMENT_NODE){
+                console.log("Nodo tipo Elemento")
+              } 
+
+            }
+         }
+
+         <a href="https://developer.mozilla.org/es/docs/Web/API/Node/nodeType" target="_blank">nodeType >>></a>
+        </pre>
+       
+    </div>  
+    <div>  <!--  childNodes - nodeValue   -->
+        <p onclick="toggle3()"> childNodes - nodeValue  </p>
+
+        <pre id="pre5">
+
+                        <h1 id="contador">1</h1> 
+                       
+            <input type="button" value="Incrementar en uno" onClick="sumarUno()">
+
+
+           <hr>
+
+            < h1 id="contador">1< /h1> 
+            < input type="button" value="Incrementar en uno" onClick="sumarUno()">
+
+            <hr>
+            function sumarUno(){
+                let obj=document.getElementById('contador')
+                let sum = obj.childNodes[0].nodeValue 
+                obj.childNodes[0].nodeValue = parseInt(sum)+1
+            }
+
+        </pre>
+        <pre id="pre6">
+
+                    <h1 id="titulo">Este es el título original</h1> 
+            <input type="button" value="Cambiar Texto" onClick="cambiarTexto()">
+
+           <hr>
+
+            < h1 id="titulo">Este es el título original< /h1> 
+            < input type="button" value="Cambiar Texto" onClick="cambiarTexto()">
+            
+              <hr>
+            function cambiarTexto() {
+                   let tit=document.getElementById('titulo')
+                   tit.childNodes[0].nodeValue='Ahora vemos el nuevo título'
+            }
+
+         </pre>    
+    </div> 
+    <div>  <!-- parentNode -->
+        <p onclick="toggle4()">parentNode</p>
+
+        <pre id="pre7">
+
+        <div>  // <-- contenedor padre
+
+            <p id="parrafo1">Este es el primer párrafo hijo con el id</p>
+            <p>Este es párrafo</p>
+            <p>Este es párrafo</p>
+            <p>Este es párrafo</p>
+            
+        </div>
+            
+            <h2> h2 párrafo fuera de el padre</h2>
+            
+            <input type="button" 
+                   value="Cambiar tamaño de fuente" 
+                   onClick="cambiarTamFuente()">
+<hr>
+
+            < div>  // <-- contenedor padre
+
+                < p id="parrafo1">Este es el primer párrafo< /p>
+                < p>Este es párrafo< /p>
+                < p>Este es párrafo< /p>
+                < p>Este es párrafo< /p>
+                
+            < /div>
+                
+                < h2> h2 párrafo< /h2>
+                
+                < input type="button" 
+                        value="Cambiar tamaño de fuente" 
+                        onClick="cambiarTamFuente()">
+
+            <hr>
+            function cambiarTamFuente() {
+
+                let parent = document.getElementById('parrafo1').parentNode
+
+                parent.style.fontSize='8px'  
+            
+            }
+        </pre>
+    </div>  
+    <div> <!--  nextElementSibling y previousElementSibling -->
+       <p onclick="toggle5()">nextElementSibling y previousElementSibling</p>
+       <pre id="pre8">
+
+
+        < ul id="list">
+
+            < li>111< /li>
+            < li>222< /li>
+            < li>333< /li>
+            < li>444< /li>
+
+        < /ul>
+         
+        <hr>
+        let listx  = document.querySelector('#list > li:first-of-type')
+        const nextItem = listx.nextElementSibling
+
+        console.log(listx)
+        console.log(nextItem)
+
+        Output
+          
+        < li>111< /li>
+        < li>222< /li>  
+
+       </pre>
+    </div>
+
+    <hr>
+
+    <div> <!-- firstChild - lastChild -->
+        <p onclick="toggle6()">firstChild - lastChild</p>
+        <pre id="pre9">
+
+        <div id="parrafos">
+            <p>Este es el primer párrafo</p>
+            <p>Este es el segundo párrafo</p>
+            <p>Este es el tercer párrafo</p>
+        </div>
+            
+        <input type="button" value="accediendo a los tres párrafos" onClick="proximoParrafo()">
+
+        <hr>
+
+        < div id="parrafos">
+            < p>Este es el primer párrafo< /p>
+            < p>Este es el segundo párrafo< /p>
+            < p>Este es el tercer párrafo< /p>
+        < /div>
+            
+        < input type="button" value="accediendo a los tres párrafos" onClick="proximoParrafo()">
+ 
+            <hr>
+        function proximoParrafo(){
+            let puntero1=document.getElementById('parrafos')
+            let puntero2=puntero1.firstChild
+
+            while (puntero2!=null){
+                if (puntero2.nodeType==Node.ELEMENT_NODE)
+                console.log('log1:', puntero2.childNodes[0].nodeValue)
+                            puntero2=puntero2.nextSibling
+            }
+        }
+            
+        </pre>
+
+       
+        <pre id="pre9a">
+
+        <div id="parrafos">
+            <p>Este es el primer párrafo</p>
+            <p>Este es el segundo párrafo</p>
+            <p>Este es el tercer párrafo</p>
+        </div>
+            
+        <input type="button" value="accediendo a los tres párrafos" onClick="parrafoAnterior()">
+            
+<hr>
+
+            < div id="parrafos">
+                < p>Este es el primer párrafo< /p>
+                < p>Este es el segundo párrafo< /p>
+                < p>Este es el tercer párrafo< /p>
+            < /div>
+                
+            < input type="button" value="accediendo a los tres párrafos" onClick="parrafoAnterior()">
+
+                <hr>
+        function parrafoAnterior(){
+              let puntero1=document.getElementById('parrafos')
+              let puntero2=puntero1.lastChild
+
+              while (puntero2!=null){
+                if (puntero2.nodeType==Node.ELEMENT_NODE)
+                  console.log(puntero2.childNodes[0].nodeValue)
+                     puntero2=puntero2.previousSibling
+              }
+        }
+            
+    </pre>
+    </div>
+    <div> <!--  getElementsByTagName -->
+        <p onclick="toggle6a()">getElementsByTagName</p>
+
+        <pre id="pre9b">
+
+
+            <section id="bloque1">
+                <h1>Primer Bloque de párrafos.</h1>
+                <p>Este es el primer párrafo</p>
+                <p>Este es el segundo párrafo</p>
+                <p>Este es el tercer párrafo</p>
+            </section>
+                
+                
+            <section id="bloque2">
+                <h1>Segundo Bloque de párrafos.</h1>
+                <p>Este es el primer párrafoqwq</p>
+                <p>Este es el segundo párrafo</p>
+                <p>Este es el tercer párrafo</p>
+            </section>
+                
+                <input type="button" value="Ocultar" onClick="ocultarParrafos()">
+
+      <hr>
+
+            < section id="bloque1">
+                < h1>Primer Bloque de párrafos.< /h1>
+                < p>Este es el primer párrafo< /p>
+                < p>Este es el segundo párrafo< /p>
+                < p>Este es el tercer párrafo< /p>
+            < /section>
+                
+                
+            < section id="bloque2">
+                < h1>Segundo Bloque de párrafos.< /h1>
+                < p>Este es el primer párrafoqwq< /p>
+                < p>Este es el segundo párrafo< /p>
+                < p>Este es el tercer párrafo< /p>
+            < /section>
+                
+                < input type="button" value="Ocultar" onClick="ocultarParrafos()">
+  
+            <hr>
+        function ocultarParrafos(){
+            let obj=document.getElementById("bloque2")
+            let lista=obj.getElementsByTagName('p')
+
+              for(f=0; f< lista.length; f++) {
+                lista[f].style.display='none'
+              }
+        }
+  
+        </pre>   
+    </div> 
+    <div> <!-- appendChild - createTextNode -->
+        <p onclick="toggle7()">appendChild - createTextNode</p>
+        <pre id="pre10">
+
+            <p id="parrafo">Texto inicial:</p>
+            <input type="button" value="Agregar nodo de texto" onClick="agregar()">
+
+<hr>
+
+            < p id="parrafo">Texto inicial:< /p>
+
+            < input type="button" value="Agregar nodo de texto" onClick="agregar()">
+
+        </pre>
+        <pre id="pre10a">
+
+            let contadorx = 1
+
+            function agregar(){
+
+                let nt = document.createTextNode(' Nuevo texto ' + contadorx + '-')
+                let nparrafo = document.getElementById('parrafo')
+
+                nparrafo.appendChild(nt)
+
+                contadorx++
+            }
+
+        </pre>
+    </div> 
+    <div> <!--  Remove a text node (removeChild) and check if it has child nodes (hasChildNodes)-->
+        <p onclick="toggle8()">Remove a text node (removeChild) and check if it has child nodes (hasChildNodes)</p>
+        <pre id="pre11">
+
+            <p id="parrafoa"> Texto inicial: </p>
+
+            <input type="button" value="Agregar nodo de texto" onClick="agregar()">
+            <input type="button" value="Eliminar nodo de texto" onClick="eliminar()">  
+
+            <hr>
+ 
+            < p id="parrafoa">Texto inicial:< /p>
+
+            < input type="button" value="Agregar nodo de texto" onClick="agregar()">
+            < input type="button" value="Eliminar nodo de texto" onClick="eliminar()"> 
+
+        </pre>
+        <pre id="pre11a">
+ 
+            let contadora=1
+
+            function agregar(){
+              let nt=document.createTextNode('Nuevo texto '+contadora+'-')
+              let nparrafo=document.getElementById('parrafo')
+              nparrafo.appendChild(nt)
+              contadora++
+            }
+
+            function eliminar(){
+              let nparrafo=document.getElementById('parrafoa')
+
+              if (nparrafo.hasChildNodes()){
+                 nparrafo.removeChild(nparrafo.lastChild)
+                 contadora--
+              }
+            }
+        </pre>
+    </div>  
+    <div> <!-- insertBefore - createElement -->
+        <p onclick="toggle9()">insertBefore - createElement</p>
+        <pre id="pre12">
+ 
+            
+            < div id="parrafos">
+                < p>Este es el primer párrafo< /p>
+                < p>Este es el segundo párrafo< /p>
+                < p id="p3">Este es el tercer párrafo< /p>
+                < p>Este es el cuarto párrafo< /p>
+                < p>Este es el quinto párrafo< /p>
+            < /div>
+
+            < input type="button" value="Insertar En Medio" onClick="insertarEnMedio()">
+            < input type="button" value="insertar al principio" onClick="insertarAlPrincipio()">
+
+        </pre>
+        <pre id="pre12a">
+
+           
+            function insertarEnMedio(){
+              let elemento=document.createElement('p')
+              let nodotexto=document.createTextNode('Párrafo entre segundo y tercero')
+              elemento.appendChild(nodotexto)
+              let puntero=document.getElementById('p3')
+
+              let pa=document.getElementById('parrafos')
+              pa.insertBefore(elemento,puntero) 
+            }
+
+            function insertarAlPrincipio(){
+              let elemento=document.createElement('p')
+              let nodotexto=document.createTextNode('Ahora este es el primer párrafo')
+              elemento.appendChild(nodotexto)
+              let pa=document.getElementById('parrafos')
+
+              let puntero=pa.firstChild
+              pa.insertBefore(elemento,puntero) 
+            }
+
+        </pre>
+    </div> 
+
+    <hr>
+
+    <div>
+    <div><!-- removeChild -->
+        <p onclick="toggle11()">removeChild </p>
+
+        <pre id="pre14">
+
+            < div id="parrafos">< /div>
+            < input type="button" value="Agregar nodo tipo elemento" onClick="agregar()">
+            < input type="button" value="Eliminar primer nodo tipo elemento" onClick="eliminarPrimero()">
+            < input type="button" value="Eliminar último nodo tipo elemento" onClick="eliminarUltimo()">
+
+        </pre>
+        <pre id="pre14a">
+
+             
+            let contador=1
+
+            function agregar(){
+              let nuevoelemento=document.createElement("p") 
+              let nuevotexto=document.createTextNode("Hola Mundo " + contador + " - ")
+
+              contador++
+              nuevoelemento.appendChild(nuevotexto)
+              let puntero=document.getElementById("parrafos")
+              puntero.appendChild(nuevoelemento)
+            }
+
+            function eliminarPrimero(){
+              let puntero=document.getElementById("parrafos")
+              if (puntero.childNodes.length>0) 
+                puntero.removeChild(puntero.childNodes[0])  
+            }
+
+            function eliminarUltimo(){   
+              let puntero=document.getElementById("parrafos")
+              if (puntero.childNodes.length>0) 
+                puntero.removeChild(puntero.childNodes[puntero.childNodes.length-1])  
+            }
+
+        </pre>
+        <pre id="pre14b">
+
+            <p>Delete the paragraph from the position entered</p> 
+
+            < div id="parrafos">
+                < p>Parrafo 0< /p>
+                < p>Parrafo 1< /p>
+                < p>Parrafo 2< /p>
+            < /div>
+
+            < input type="text" id="posicion" name="posicion">
+            < input type="button" value="Eliminar" onClick="eliminar()">
+
+            <hr>
+            function eliminar(){
+              let puntero=document.getElementById('parrafos')
+              let valor=document.getElementById('posicion').value
+              if (valor< puntero.childNodes.length)
+              puntero.removeChild(puntero.childNodes[valor])
+            }
+
+        </pre>
+    </div>   
+    </div>
+    <div> <!--  Create an attribute and add it to a node of type element (setAttribute) -->
+        <p onclick="toggle12()">Create an attribute and add it to a node of type element (setAttribute) </p>
+        <pre id="pre15">
+ 
+        < input type="button" value="Crear nodo y href" onClick="crearAtributo()">
+
+            < div id="div"> < /div>
+
+        </pre>
+        <pre id="pre15a">
+ 
+          
+            function crearAtributo()
+            {
+              let a = document.createElement('a')
+              let div = document.getElementById('div')
+            
+              div.appendChild(a)
+              nodotexto = document.createTextNode('google')
+              
+              a.appendChild(nodotexto)
+              a.setAttribute('href','http://www.google.com')
+            } 
+
+        </pre>
+        <pre id="pre15b">
+
+            < table id="tabla1">
+                < tr>
+                < td>11< /td>   < td>12< /td>
+                < /tr>
+
+                < tr>
+                < td>21< /td>   < td>22< /td>
+                < /tr>
+
+            < /table>
+                
+            < input type="button" value="definir" onClick="definirAtributo()">
+
+                <hr>
+          
+            function definirAtributo(){
+              let reftabla=document.getElementById('tabla1')
+              reftabla.setAttribute('border','11')
+            }
+        </pre>
+    </div>    
+    <div> <!--  Remove an attribute from an element (removeAttribute) -->
+        <p onclick="toggle13()">Remove an attribute from an element (removeAttribute) </p>
+        <pre id="pre16">
+ 
+            <a id="enlace1" href="http://www.google.com.ar">Google.</a>
+
+            <a id="enlace2" href="http://www.yahoo.com.ar">Yahoo.</a>
+
+            <input type="button" value="Eliminar atributos" onClick="eliminarAtributo()">
+
+            <input type="button" value="Inicializar atributos" onClick="inicializarAtributo()">
+
+
+            < a id="enlace1" href="http://www.google.com.ar">Google.< /a>
+            < a id="enlace2" href="http://www.yahoo.com.ar">Yahoo.< /a>
+            < input type="button" value="Eliminar atributos" onClick="eliminarAtributo()">
+            < input type="button" value="Inicializar atributos" onClick="inicializarAtributo()">
+
+        </pre>
+        <pre id="pre16a">
+ 
+            function eliminarAtributo(){
+              let puntero=document.getElementById('enlace1')
+              puntero.removeAttribute('href')
+              puntero=document.getElementById('enlace2')
+              puntero.removeAttribute('href')
+            }
+
+            function inicializarAtributo(){
+              let puntero=document.getElementById('enlace1')
+              puntero.setAttribute('href','http://www.google.com.ar')
+              puntero=document.getElementById('enlace2')
+              puntero.setAttribute('href','http://www.yahoo.com.ar')
+            }
+        </pre>
+        <pre id="pre16b">
+
+            < table id="tabla1">
+                < tr>
+                < td>11< /td>  < td>12< /td>
+                < /tr>
+                < tr>
+                < td>21< /td>  < td>22< /td>
+                < /tr>
+            < /table>
+            < input type="button" value="Inicializar borde" onClick="definirAtributo()">
+            < input type="button" value="Borrar borde" onClick="borrarAtributo()">
+
+                <table id="tabla1">
+                    <tr>
+                    <td>11</td><td>12</td>
+                    </tr>
+                    <tr>
+                    <td>21</td><td>22</td>
+                    </tr>
+                </table>
+
+                <input type="button" value="Inicializar borde" onClick="definirAtributo()">
+
+                <input type="button" value="Borrar borde" onClick="borrarAtributo()">
+
+<hr>
+            function definirAtributo(){
+              let reftabla=document.getElementById('tabla1')
+              reftabla.setAttribute('border','1')
+            }
+
+            function borrarAtributo(){
+                let reftabla=document.getElementById('tabla1')
+                reftabla.removeAttribute('border')   
+            }
+        </pre>
+    </div> 
+    <div> <!--  Retrieve an attribute from an element (getAttribute) -->
+        <p onclick="toggle14()">Retrieve an attribute from an element (getAttribute)</p>
+        <pre id="pre17">
+
+            < a id="enlace" href="http://www.google.com.ar">Google.< /a>
+
+            < input type="button" value="Recuperar atributo href" onClick="recuperarAtributo()">
+ 
+            <a id="enlace" href="http://www.google.com.ar">Google.</a>
+
+            <input type="button" value="Recuperar atributo href" onClick="recuperarAtributo()">
+           
+
+        </pre>
+        <pre id="pre17a">
+
+            function recuperarAtributo()
+            {
+              let puntero=document.getElementById('enlace')
+              console.log('href:', puntero.getAttribute('href'))
+            }
+           
+        </pre>
+        <pre id="pre17b">
+            
+        <p>Retrieve the href attribute from the first link and copy it to the second</p>
+
+            < a id="enlace1" href="http://www.google.com.ar">Google.< /a>
+            < a id="enlace2" href="http://www.yahoo.com">MSN.< /a>
+            < input type="button" value="Recuperar atributo href del primer 
+            enlace y copiarlo al segundo" onClick="recuperarAtributo()">            
+
+            <a id="enlace1" href="http://www.google.com.ar">Google.</a><br>
+            <a id="enlace2" href="http://www.yahoo.com">MSN.</a><br>
+            <input type="button" value="set & get" onClick="recuperarAtributo()">
+
+            <hr>
+
+            
+              function recuperarAtributo(){
+                
+                let puntero1=document.getElementById('enlace1')
+                let puntero2=document.getElementById('enlace2')
+                
+                console.log('GOOGLE 1:', puntero1.getAttribute('href'))
+                console.log(' YAHOO 1:', puntero2.getAttribute('href'))
+
+                puntero2.setAttribute('href',puntero1.getAttribute('href'))
+
+                console.log('GOOGLE 2:', puntero1.getAttribute('href'))
+                console.log(' YAHOO 2:', puntero2.getAttribute('href'))
+    
+            }
+
+        </pre>
+    </div>  
+    <div> <!--  Check if an element has an attribute (hasAttribute) -->
+        <p onclick="toggle15()">Check if an element has an attribute (hasAttribute) toggle.</p>
+        <pre id="pre18">
+            
+
+            <input type="button" value="toggle" onClick="cambiarAtributo()">
+
+            <table id="tabla11">
+                <tr>
+                <td>11</td><td>12</td>
+                </tr>
+                <tr>
+                <td>21</td><td>22</td>
+                </tr>
+            </table>
+            
+          
+            < table id="tabla11">
+                < tr>
+                < td>11</ td>   < td>12< /td>
+                < /tr>
+                < tr>
+                < td>21</ td>   < td>22< /td>
+                < /tr>
+            </ table>
+            < input type="button" value="toggle" onClick="cambiarAtributo()">
+
+        </pre>
+        <pre id="pre18a">
+
+
+            function cambiarAtributo()
+            {
+              let reftabla=document.getElementById('tabla11')
+              if (reftabla.hasAttribute('border'))
+                reftabla.removeAttribute('border')
+              else
+                reftabla.setAttribute('border','1')
+            }
+           
+        </pre>
+        <pre id="pre18b">
+
+            
+            <input type="button" value="Aumentar Borde" onClick="aumentarBorde()">
+            
+            <table id="tabla12">
+                <tr>
+                <td>11</td><td>12</td>
+                </tr>
+
+                <tr>
+                <td>21</td><td>22</td>
+                </tr>
+            </table>
+
+            < input type="button" value="Aumentar Borde" onClick="aumentarBorde()">
+            
+            < table id="tabla12">
+                < tr>
+                < td>11< /td>   < td>12< /td>
+                < /tr>
+
+                < tr>
+                < td>21< /td>   < td>22< /td>
+                < /tr>
+            < /table>
+
+            <hr>
+
+            function aumentarBorde(){
+
+                let reftabla=document.getElementById('tabla12')
+
+                if (reftabla.hasAttribute('border')){
+                    let valor=reftabla.getAttribute('border')
+                    valor++
+                    reftabla.setAttribute('border',valor)
+                } else {
+                    reftabla.setAttribute('border','1')
+                  }           
+            }
+        </pre>
+    </div>
+
+    <hr>
+
+    <div> <!--  Move a node of type element. -->
+        <p onclick="toggle16()">Move a node of type element.</p>
+
+        <pre id="pre19">
+
+
+            LISTA 1:
+            < ul id="lista1"> 
+                < li>Opcion 1.< /li>
+                < li>Opcion 2.< /li>
+                < li>Opcion 3.< /li>
+             < /ul>
+ 
+             < input type="button" value="Mover elemento" onClick="moverItem()">
+
+             LISTA 2:
+             < ul id="lista2">  < /ul>
+
+            <hr>
+           LISTA 1:
+           <ul id="lista1"> 
+               <li>Opcion 1.</li>
+               <li>Opcion 2.</li>
+               <li>Opcion 3.</li>
+            </ul>
+         LISTA 2:
+        <ul id="lista2"> </ul>
+
+        <input type="button" value="Mover elemento" onClick="moverItem()">
+        </pre>
+        <pre id="pre19a">
+         
+            function moverItem(){
+                let ref1=document.getElementById('lista1')
+                let refHijo=ref1.firstElementChild
+
+                let ref2=document.getElementById('lista2')
+                ref2.appendChild(refHijo)
+            }
+           
+        </pre>
+        <pre id="pre19b">
+
+            < div id="region1">
+                < p>Este es el primer párrafo< /p>
+                < p>Este es el segundo párrafo< /p>
+                < p>Este es el tercer párrafo< /p>
+            < /div>
+
+            < input type="button" value="Mover el primer párrafo" 
+                onClick="moverParrafo()">
+
+            < div id="region2"> < /div>
+
+<hr>
+
+            function moverParrafo(){
+                  let puntero1=document.getElementById('region1')
+                  let puntero2=document.getElementById('region2')
+                  puntero2.appendChild(puntero1)
+            }
+        </pre>
+    </div>  
+    <div> <!--  Cloning a node (cloneNode) -->
+        <p onclick="toggle17()">Cloning a node (cloneNode)</p>
+        <pre id="pre20">
+
+            < div id="enlaces">
+                < a href="#">Enlace 1< /a>
+                < a href="#">Enlace 2< /a>
+                < a href="#">Enlace 3< /a>
+            < /div>
+
+                < input type="button" onclick="clonarNodos()" value="Clonar nodos">
+
+                < div id="enlacesnuevos"> < /div>
+        </pre>
+        <pre id="pre20a">
+
+            let orden=1
+            function clonarNodos()
+            {
+              let id=document.getElementById("enlaces")
+              let nuevos=id.cloneNode(true)
+              nuevos.style.id='enlaces'+orden
+              orden++
+              id=document.getElementById("enlacesnuevos")
+              id.appendChild(nuevos)
+            }
+           
+        </pre>
+        <pre id="pre20b">
+
+            <p id="titulo">Titulo Principal</p>
+
+            <input type="button" onclick="javascript:clonarNodo()" 
+            value="Clonar nodo">
+
+            <div id="region"> </div>
+
+                            <hr>
+
+            function clonarNodo(){
+              let id=document.getElementById('titulo')
+              let nuevos=id.cloneNode(true)
+
+              nuevos.style.id=nuevos.style.id + 'b'
+              id=document.getElementById("region")
+
+              id.appendChild(nuevos)
+            }
+
+        </pre>
+    </div>  
+    <div> <!--  Query the node type (nodeType) -->
+        <p onclick="toggle18()">Query the node type (nodeType)</p>
+        <pre id="pre21">
+            
+            <div id="grupo"><p>Este es un párrafo</p></div>
+            <input type="button" value="Query the node type" onClick="tipoDeNodos()">
+
+
+            < div id="grupo">  < p>Este es un párrafo< /p>  < /div>
+            < input type="button" value="Query the node type" onClick="tipoDeNodos()">
+
+        </pre>
+        <pre id="pre21a">
+
+
+            function tipoDeNodos()
+            {
+              let puntero=document.getElementById('grupo')
+              alert (puntero.nodeName + " es de tipo " + puntero.nodeType)
+              let hijo=puntero.childNodes[0]
+              alert (hijo.nodeName + " es de tipo " + hijo.nodeType)
+              let nieto=hijo.childNodes[0]
+              alert (nieto.nodeName + " es de tipo " + nieto.nodeType)
+            }
+
+            <hr>
+
+            If it stores a 1 (one) the node is of type element
+            (div, a, p etc.), if it stores a 3 (three) it is a node of type text.
+
+            In turn, the nodeName property stores the HTML mark if it is a node 
+            of type element or the value #text if it is a node of type text.
+            
+            Finally,
+            nodeValue property stores the content of the node if it is a text type node, 
+            in the case of an element type node (that is, an HTML mark) it stores null.
+           
+
+        </pre>
+        <pre id="pre21b">
+           
+            
+                <p id="parrafo">Este es un párrafo con un texto <em>resaltado</em>con la marca em</p>
+
+                <input type="button" value="Query the node type" onClick="tipoDeNodos()">
+
+                < p id="parrafo">Este es un párrafo con un texto < em> resaltado < /em>con la marca em< /p>
+
+                < input type="button" value="Query the node type" onClick="tipoDeNodos()">
+
+                <hr>
+
+            function tipoDeNodos(){
+                  let puntero=document.getElementById('parrafo')
+              for(f=0; f< puntero.childNodes.length; f++){  
+                console.log(puntero.childNodes[f].nodeName + " es de tipo " + puntero.childNodes[f].nodeType)
+              }
+            }           
+
+        </pre>
+    </div>  
+    <div> <!--  Accessing the style of an HTML markup. -->
+        <p onclick="toggle19()">Accessing the style of an HTML markup.</p>
+        <pre id="pre22">
+           
+            <p id="recuadro">Quién descubrió América y en que año fue?</p>
+            Color de fondo:
+            <select onChange="cambiarColorFondo()" id="colorfondo">
+            <option value="#ffff00">amarillo</option>
+            <option value="#ff0000">rojo</option>
+            <option value="#00ff00">verde</option>
+            <option value="#0000ff">azul</option>
+            </select>
+            Color de fuente:
+            <select onChange="cambiarColorFuente()" id="colorfuente">
+            <option value="#000000">negro</option>
+            <option value="#ff0000">rojo</option>
+            <option value="#00ff00">verde</option>
+            <option value="#0000ff">azul</option>
+            </select>
+            Cambiar tamaño de fuente:
+            <select onChange="cambiarTamanoFuente()" id="tamanofuente">
+            <option value="10px">10</option>
+            <option value="12px">12</option>
+            <option value="14px">14</option>
+            <option value="16px">16</option>
+            <option value="18px">18</option>
+            <option value="20px">20</option>
+            <option value="22px">22</option>
+            <option value="24px">24</option>
+            </select>
+            Cambiar tipo de fuente:
+            <select onChange="cambiarTipoFuente()" id="tipofuente">
+            <option value="Arial">Arial</option>
+            <option value="Courier">Curier</option>
+            <option value="Verdana">Verdana</option>
+            </select>
+            Cambiar estilo de la fuente:
+            <select onChange="cambiarEstiloFuente()" id="estilofuente">
+            <option value="normal">Normal</option>
+            <option value="Italic">Italic</option>
+            <option value="Oblique">Oblique</option>
+            </select>
+            Peso de la fuente:
+            <select onChange="cambiarPesoFuente()" id="pesofuente">
+            <option value="normal">Normal</option>
+            <option value="bold">Bold</option>
+            </select>
+            Alineación de la fuente:
+            <select onChange="cambiarAlineacionFuente()" id="alineacionfuente">
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+            <option value="center">Center</option>
+            </select>
+            Decoración de la fuente:
+            <select onChange="cambiarDecoracionFuente()" id="decoracionfuente">
+            <option value="none">none</option>
+            <option value="underline">underline</option>
+            <option value="overline">overline</option>
+            <option value="line-through">line-through</option>
+            </select>
+            Espacio entre letras:
+            <select onChange="cambiarEspacioLetras()" id="espacioletras">
+            <option value="3">3</option>
+            <option value="6">6</option>
+            <option value="9">9</option>
+            <option value="12">12</option>
+            <option value="15">15</option>
+            </select>
+            Espacio entre palabras:
+            <select onChange="cambiarEspacioPalabras()" id="espaciopalabras">
+            <option value="3">3</option>
+            <option value="6">6</option>
+            <option value="9">9</option>
+            <option value="12">12</option>
+            <option value="15">15</option>
+            </select>
+            Transformación de texto:
+            <select onChange="cambiarTransformacionTexto()" id="transformaciontexto">
+            <option value="none">none</option>
+            <option value="capitalize">capitalize</option>
+            <option value="lowercase">lowercase</option>
+            <option value="uppercase">uppercase</option>
+            </select>
+            Ancho de borde:
+            <select onChange="cambiarAnchoBorde()" id="anchoborde">
+            <option value="0px">0</option>
+            <option value="1px" selected="selected">1</option>
+            <option value="2px">2</option>
+            <option value="3px">3</option>
+            <option value="4px">4</option>
+            <option value="5px">5</option>
+            </select>
+            Estilo de borde:
+            <select onChange="cambiarEstiloBorde()" id="estiloborde">
+            <option value="none">none</option>
+            <option value="hidden">hidden</option>
+            <option value="dotted">dotted</option>
+            <option value="dashed">dashed</option>
+            <option value="solid">solid</option>
+            <option value="double">double</option>
+            <option value="groove">groove</option>
+            <option value="ridge">ridge</option>
+            <option value="inset">inset</option>
+            <option value="outset">outset</option>
+            </select>
+            Color de borde:
+            <select onChange="cambiarColorBorde()" id="colorborde">
+            <option value="#000000">negro</option>
+            <option value="#ffff00">amarillo</option>
+            <option value="#ff0000">rojo</option>
+            <option value="#00ff00">verde</option>
+            <option value="#0000ff">azul</option>
+            </select>
+            padding:
+            <select onChange="cambiarPadding()" id="padding">
+            <option value="0">0</option>
+            <option value="4">4</option>
+            <option value="8">8</option>
+            <option value="12">12</option>
+            <option value="16">16</option>
+            <option value="20">20</option>
+            </select>
+            margin:
+            <select onChange="cambiarMargin()" id="margin">
+            <option value="0">0</option>
+            <option value="4" selected="selected">4</option>
+            <option value="8">8</option>
+            <option value="12">12</option>
+            <option value="16">16</option>
+            <option value="20">20</option>
+            </select>
+ 
+        </pre>
+        <pre id="pre22a">
+
+            //CSS
+            #recuadro {   
+                background-color:#ffff00
+                border:1px solid #000000
+                font-size:10px
+              }
+
+            //javascript
+            function cambiarColorFondo(){
+              let pun=document.getElementById('colorfondo')
+              let punrec=document.getElementById('recuadro')
+              punrec.style.backgroundColor=pun.value
+            }
+            
+            function cambiarColorFuente(){
+              let pun=document.getElementById('colorfuente')
+              let punrec=document.getElementById('recuadro')
+              punrec.style.color=pun.value
+            }
+            
+            function cambiarTamanoFuente(){
+              let pun=document.getElementById('tamanofuente')
+              let punrec=document.getElementById('recuadro')
+              punrec.style.fontSize=pun.value
+            }
+            
+            function cambiarTipoFuente(){
+              let pun=document.getElementById('tipofuente')
+              let punrec=document.getElementById('recuadro')
+              punrec.style.fontFamily=pun.value
+            }
+            
+            function cambiarEstiloFuente(){
+              let pun=document.getElementById('estilofuente')
+              let punrec=document.getElementById('recuadro')
+              punrec.style.fontStyle=pun.value
+            }
+            
+            function cambiarPesoFuente(){
+              let pun=document.getElementById('pesofuente')
+              let punrec=document.getElementById('recuadro')
+              punrec.style.fontWeight=pun.value
+            }
+            
+            function cambiarAlineacionFuente(){
+              let pun=document.getElementById('alineacionfuente')
+              let punrec=document.getElementById('recuadro')
+              punrec.style.textAlign=pun.value
+            }
+            
+            function cambiarDecoracionFuente(){
+              let pun=document.getElementById('decoracionfuente')
+              let punrec=document.getElementById('recuadro')
+              punrec.style.textDecoration=pun.value
+            }
+            
+            function cambiarEspacioLetras(){
+              let pun=document.getElementById('espacioletras')
+              let punrec=document.getElementById('recuadro')
+              punrec.style.letterSpacing=pun.value
+            }
+            
+            function cambiarEspacioPalabras(){
+              let pun=document.getElementById('espaciopalabras')
+              let punrec=document.getElementById('recuadro')
+              punrec.style.wordSpacing=pun.value
+            }
+            
+            function cambiarTransformacionTexto(){
+              let pun=document.getElementById('transformaciontexto')
+              let punrec=document.getElementById('recuadro')
+              punrec.style.textTransform=pun.value
+            }
+            
+            function cambiarAnchoBorde(){
+              let pun=document.getElementById('anchoborde')
+              let punrec=document.getElementById('recuadro')
+              punrec.style.borderWidth=pun.value
+            }
+            
+            function cambiarEstiloBorde(){
+              let pun=document.getElementById('estiloborde')
+              let punrec=document.getElementById('recuadro')
+              punrec.style.borderStyle=pun.value
+            }
+            
+            function cambiarColorBorde(){
+              let pun=document.getElementById('colorborde')
+              let punrec=document.getElementById('recuadro')
+              punrec.style.borderColor=pun.value
+            }
+            
+            function cambiarPadding(){
+              let pun=document.getElementById('padding')
+              let punrec=document.getElementById('recuadro')
+              punrec.style.padding=pun.value
+            }
+            
+            function cambiarMargin(){
+              let pun=document.getElementById('margin')
+              let punrec=document.getElementById('recuadro')
+              punrec.style.margin=pun.value
+            }      
+           
+        </pre>
+        <pre id="pre22b">
+
+
+            Color de fuente:
+            < select onChange="cambiarColorFuente()" id="colorfuente">
+                < option value="#ff0000">rojo< /option>
+                < option value="#00ff00">verde< /option>
+                < option value="#0000ff">azul< /option>
+            < /select>
+
+            Cambiar tamaño de fuente:
+            < select onChange="cambiarTamanoFuente()" id="tamanofuente">
+                < option value="10px">10< /option>
+                < option value="12px">12< /option>
+                < option value="14px">14< /option>
+            < /select>
+      
+            Alineación de la fuente:
+            < select onChange="cambiarAlineacionFuente()" id="alineacionfuente">
+              < option value="left">Left< /option>
+              < option value="right">Right< /option>
+              < option value="center">Center< /option>
+            < /select>
+         
+            Espacio entre palabras:
+            < select onChange="cambiarEspacioPalabras()" id="espaciopalabras">
+              < option value="3">3< /option>
+              < option value="6">6< /option>
+              < option value="9">9< /option>
+            </ select>
+          
+            padding:
+            < select onChange="cambiarPadding()" id="padding">
+              < option value="0">0< /option>
+              < option value="4" selected="selected">4< /option>
+              < option value="8">8< /option>
+            < /select>
+
+            <hr>
+            <hr>
+
+            <p>List Style</p>
+
+                <select onChange="cambiarEstiloLista()" id="estilolista">
+                    <option value="none">none</option>
+                    <option value="disc">disc</option>
+                    <option value="circle">circle</option>
+                    <option value="square">square</option>
+                    <option value="decimal" selected="selected">decimal</option>
+                    <option value="decimal-leading-zero">decimal-leading-zero</option>
+                    <option value="lower-roman">lower-roman</option>
+                    <option value="upper-roman">upper-roman</option>
+                    <option value="lower-alpha">lower-alpha</option>
+                    <option value="upper-alpha">upper-alpha</option>
+                </select>
+                <ul id="listapaises">
+                    <li>Brasil</li>
+                    <li>Uruguay</li>
+                    <li>Argentina</li>
+                </ul>
+
+                <hr>
+
+                < ul id="listapaises">
+                    < li>Brasil< /li>
+                    < li>Uruguay< /li>
+                    < li>Argentina< /li>
+                < /ul>
+    
+                    < select onChange="cambiarEstiloLista()" id="estilolista">
+                        < option value="none">none< /option>
+                        < option value="disc">disc< /option>
+                        < option value="circle">circle< /option>
+                        < option value="square">square< /option>
+                        < option value="decimal" selected="selected">decimal< /option>
+                        < option value="decimal-leading-zero">decimal-leading-zero< /option>
+                        < option value="lower-roman">lower-roman< /option>
+                        < option value="upper-roman">upper-roman< /option>
+                        < option value="lower-alpha">lower-alpha< /option>
+                        < option value="upper-alpha">upper-alpha< /option>
+                    < /select>     
+
+                    <hr>
+          
+            #listapaises {
+                list-style-type:decimal
+              }
+           
+              <hr>
+
+            function cambiarEstiloLista()
+            {
+              let pun=document.getElementById('listapaises')
+              let punselect=document.getElementById('estilolista')
+              pun.style.listStyleType=punselect.value
+            }
+
+        </pre>
+    </div>  
+
+    <div> <!--  Dynamically creating input type controls. -->
+        <p onclick="toggle20()">Dynamically creating input type controls.</p>
+        <pre id="pre23">
+
+            <form method="post" action="#">
+                <select onChange="crearText()" id="seleccion">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                </select>
+
+                <div id="seccion"></div>
+
+                <input type="submit" value="Registrar">
+            </form>
+
+        </pre>
+        <pre id="pre23a">
+            
+
+function crearText() 
+{
+  let actuales=document.getElementById('seccion')
+  let cant=actuales.childNodes.length
+  for(f=0; f< cant; f++)
+  {
+    actuales.removeChild(actuales.childNodes[0])
+  }
+  let se=document.getElementById('seleccion')
+  let cantidad=0
+  for(f=0; f< se.value; f++)
+  {
+    cantidad++
+    let nuevohijo = document.createElement('input')
+    nuevohijo.type = 'text'
+    nuevohijo.name = 'nombre' + cantidad
+    nuevohijo.id = 'nombre' + cantidad
+    document.getElementById('seccion').appendChild(nuevohijo)
+    document.getElementById('seccion').appendChild(document.createElement('br'))
+  }
+}
+                        
+        </pre>
+        <pre id="pre23b">
+
+
+        < form method="post" action="#">
+            < select onChange="crearText()" id="seleccion">
+                < option value="0">0< /option>
+                < option value="1">1< /option>
+                < option value="2">2< /option>
+                < option value="3">3< /option>
+                < option value="4">4< /option>
+                < option value="5">5< /option>
+            < /select>
+            
+            < div id="seccion">
+            < /div>
+
+            < input type="submit" value="Registrar">
+        < /form>
+
+        </pre>
+    </div>  
+
+    <hr>
+
+    <div> <!-- Reference of the object that generated the event (this) -->
+        <p onclick="toggle21()">Reference of the object that generated the event (this)</p>
+        <pre id="pre24">
+ 
+            <h1 id="titulo11">Datos del objeto que emite el evento.</h1>
+            <input type="button" name="boton1" value="boton 1" id="b1" onclick="mostrarAtributos(this)">
+            <br> 
+            <input type="button" name="boton2" value="boton 2" id="b2" onclick="mostrarAtributos(this)">
+
+        </pre>
+        <pre id="pre24a">
+
+
+            function mostrarAtributos(objeto){
+
+              let ref=document.getElementById('titulo11')
+              ref.firstChild.nodeValue = 'Name:'+objeto.name+' Id:'+objeto.id+' Value:'+objeto.value
+
+            }
+           
+    
+
+            < h1 id="titulo11">Datos del objeto que emite el evento.< /h1>
+
+            < input type="button" name="boton1" value="boton 1" id="b1" onclick="mostrarAtributos(this)">
+            
+            < input type="button" name="boton2" value="boton 2" id="b2" onclick="mostrarAtributos(this)">
+
+        </pre>
+        <pre id="pre24b">
+
+            function concatenar(that){
+
+                let out = document.getElementById('titulo12')
+                out.firstChild.nodeValue = out.firstChild.nodeValue + that.value
+  
+              } 
+
+
+            < h1 id="titulo12">Valor:< /h1>
+
+            < input type="button" name="boton1" value="1" onclick="concatenar(this)">
+
+            < input type="button" name="boton2" value="2" onclick="concatenar(this)">
+
+            < input type="button" name="boton3" value="3" onclick="concatenar(this)">
+
+        </pre>
+    </div>  
+    <div> <!--  Information generated in an event -->
+        <p onclick="toggle22()">Information generated in an event</p>
+        <pre id="pre25">
+ 
+            < body onclick="presionado(event)">
+
+                < div id="ayuda">Ayuda< /div>
+
+            < /body> 
+
+        </pre>
+        <pre id="pre25a">
+            #ayuda {
+                color:#aa0
+                background-color:#ff0
+                position:absolute
+                text-align:center
+                left:40px
+                top:30px
+                width:100px
+                height:40px
+                display: none
+              }
+           
+        </pre>
+        <pre id="pre25b">
+            function presionado(e)
+            { 
+              let obj=document.getElementById('ayuda')
+              obj.style.display='block'
+              obj.style.left=e.clientX+10+'px'
+              obj.style.top=e.clientY+10+'px'
+            }
+
+        </pre>
+    </div>  
+    <div> <!--  InnerHTML property -->
+        <p onclick="toggle23()">InnerHTML property</p>
+        <pre id="pre26">
+    
+            Ingrese url:<input type="text" id="text1" value="http://www.lavoz.com.ar" size="30"><br>
+            Ingrese url:<input type="text" id="text2" value="http://www.lanacion.com.ar" size="30"><br>
+            <input type="button" value="Crear enlaces" id="boton1">
+            <h2>Mediante innerHTML</h2>
+            <div id="enlaces1">
+            </div>
+            <h2>Creando nodos de elemento y texto</h2>
+            <div id="enlaces2">
+            </div>
+           
+
+        </pre>
+        <pre id="pre26a">
+
+            window.addEventListener('load',inicializarEventos,false)
+
+            function inicializarEventos()
+            {
+              let ob1=document.getElementById('boton1')
+              ob1.addEventListener('click',crearEnlaces,false)
+            }
+            
+            function crearEnlaces(e)
+            {
+              //Utilizando el innerHTML
+              let ob1=document.getElementById("enlaces1")
+              ob1.innerHTML='< a href="'+document.getElementById('text1').value+'">Enlace 1< /a> + < a href="'+document.getElementById('text2').value+'">Enlace 2< /a>'
+            
+              //Utilizando los métodos para crear nodos de elemento y texto
+              let elemento=document.createElement('a')
+              let puntero=document.getElementById('enlaces2')
+              puntero.appendChild(elemento)
+              let nodotexto=document.createTextNode('Enlace 1')
+              elemento.appendChild(nodotexto)
+              elemento.setAttribute('href',document.getElementById('text1').value)
+              puntero.appendChild(document.createElement('br'))  
+              elemento=document.createElement('a')
+              puntero.appendChild(elemento)
+              nodotexto=document.createTextNode('Enlace 2')
+              elemento.appendChild(nodotexto)
+              elemento.setAttribute('href',document.getElementById('text2').value)
+            }
+            
+        </pre>
+        <pre id="pre26b">
+
+            Ingrese url:< input type="text" id="text1" value="http://www.lavoz.com.ar" size="30">
+            Ingrese url:< input type="text" id="text2" value="http://www.lanacion.com.ar" size="30">
+
+            < input type="button" value="Crear enlaces" id="boton1">
+
+            < h2>Mediante innerHTML</ h2>
+
+            < div id="enlaces1">< /div>
+
+
+            < h2>Creando nodos de elemento y texto< /h2>
+
+            < div id="enlaces2">< /div>
+
+        </pre>
+    </div>  
+    <div> <!--  Show a Tooltip -->
+        <p onclick="toggle24()">Show a Tooltip</p>
+        <pre id="pre27">
+
+
+            <p>Entre con el mouse al recuadro.</p>
+            <div class="cuadradito" title="este es el mensaje1"></div>
+            <div class="cuadradito" title="este es el mensaje2"></div>
+            <div class="cuadradito" title="este es el mensaje3"></div>
+            <div class="cuadradito" title="este es el mensaje4"></div>
+           
+
+        </pre>
+        <pre id="pre16a">
+
+
+            window.addEventListener('load',inicializarEventos,false)
+
+            function inicializarEventos()
+            {
+              let vec=document.getElementsByTagName('div')
+              for(f=0; f< vec.length; f++)
+              {
+                vec[f].addEventListener('mouseover',mostrarToolTip,false)
+                vec[f].addEventListener('mouseout',ocultarToolTip,false)
+                vec[f].addEventListener('mousemove',mostrarToolTip,false)
+              }
+              let ele=document.createElement('div')
+              ele.setAttribute('id','divmensaje')
+              vec=document.getElementsByTagName('body')
+              vec[0].appendChild(ele)
+            
+            }
+            
+            function mostrarToolTip(e) 
+            {
+              let d = document.getElementById("divmensaje")
+              d.style.visibility = "visible"
+              texto=e.target.getAttribute('title')
+              d.style.left = e.clientX + document.body.scrollLeft + 15
+              d.style.top = e.clientY + document.body.scrollTop + 15
+              if (d.childNodes.length>0)
+                d.firstChild.nodeValue=texto
+              else
+              {
+                d.appendChild(document.createTextNode(texto))
+              }
+            }
+            
+            function ocultarToolTip(e) 
+            {
+              let d = document.getElementById("divmensaje")
+              d.style.visibility = "hidden"
+            }
+            
+ 
+           
+        </pre>
+        <pre id="pre16b">
+
+            < p>Entre con el mouse al recuadro.< /p>
+            < div class="cuadradito" title="este es el mensaje1">< /div>
+            < div class="cuadradito" title="este es el mensaje2">< /div>
+            < div class="cuadradito" title="este es el mensaje3">< /div>
+            < div class="cuadradito" title="este es el mensaje4">< /div>
+        </pre>
+    </div>  
+    <div> <!--  Link opening on the same page or in another tab  -->
+        <p onclick="toggle25()">Link opening on the same page or in another tab</p>
+        <pre id="pre28">
+            
+            Apertura de enlaces en otra página?<input type="checkbox" id="check1"><br>
+            <ul> 
+            <li><a href="http://www.lanacion.com.ar">La Nación</A></li>
+            <li><a href="http://www.clarin.com.ar">El Clarín</A></li>
+            <li><a href="http://www.lavoz.com.ar">La Voz</a></li>
+            </ul> 
+           
+
+        </pre>
+        <pre id="pre16a">
+            
+            window.addEventListener('load',inicializarEventos,false)
+
+            function inicializarEventos()
+            {
+              let enlaces=document.getElementsByTagName('a')
+              for(f=0; f< enlaces.length; f++)
+              {
+                enlaces[f].addEventListener('click',enlaceSeleccionado,false)
+              }
+            }
+            
+            function enlaceSeleccionado(e)
+            {
+              let check=document.getElementById('check1')
+              if (check.checked)
+              {
+                let enlace
+                enlace=e.target
+                e.preventDefault()        
+                window.open(enlace.getAttribute('href'))
+              }
+            }
+            
+        </pre>
+        <pre id="pre16b">
+
+            Apertura de enlaces en otra página?< input type="checkbox" id="check1">
+
+            < ul> 
+                < li>< a href="http://www.lanacion.com.ar">La Nación< /a>< /li>
+                < li>< a href="http://www.clarin.com.ar">El Clarín< /a></ li>
+                < li>< a href="http://www.lavoz.com.ar">La Voz< /a>< /li>
+            < /ul> 
+
+        </pre>
+    </div>  
+
+    <hr>
+    
+    <div> <!-- drag and drop -->
+        <p onclick="toggle26()"> drag and drop </p>
+        <pre id="pre29">
+ 
+            w indow.addEventListener('load',inicializarEventos,false)
+            function inicializarEventos(e)
+            {
+              let ob=document.createElement('div')
+              ob.style.left='0px'
+              ob.style.top='0px'
+              ob.style.width='100px'
+              ob.style.height='100px'
+              ob.style.background='#ff0'
+              ob.style.position='relative'
+              let x=document.getElementsByTagName('body')
+              x[0].appendChild(ob)
+              let recu1=new Recuadro(ob)
+            }
+            
+            
+            Recuadro=function(div)
+            {
+                let tX=0
+                let tY=0
+                let difX=0
+                let difY=0
+            
+                div.addEventListener('mousedown',inicioDrag,false)
+            
+            
+                function coordenadaX(e)
+                {
+                  return e.pageX
+                }
+            
+                function coordenadaY(e)
+                {
+                  return e.pageY
+                }
+            
+                function inicioDrag(e) 
+                {
+                  let eX=coordenadaX(e)
+                  let eY=coordenadaY(e)
+                  let oX=parseInt(div.style.left)
+                  let oY=parseInt(div.style.top)
+                  difX=oX-eX
+                  difY=oY-eY
+                  document.addEventListener('mousemove',drag,false)
+                  document.addEventListener('mouseup',soltar,false)
+            
+                }
+            
+                function drag(e) 
+                { 
+                  tX=coordenadaY(e)+difY+'px'
+                  tY=coordenadaX(e)+difX+'px'
+                  div.style.top=tX 
+                  div.style.left=tY 
+                }
+              
+            
+                function soltar(e)
+                { 
+                  document.removeEventListener('mousemove',drag,false)
+                  document.removeEventListener('mouseup',soltar,false)
+                }
+            }
+            
+
+        </pre>
+  
+    </div>  
+  
+ 
+
+
+
+</body>
+<script src="index.js"></script>
+</html>
+
+
+
+
+
+
+
+

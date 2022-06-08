@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERVIEW JAVASCRIPT</title>
+</head>
+
+<link rel="stylesheet" href="DOM/style.css">
+<script>
+    function toggle(){
+        document.querySelector("#pre").classList.toggle("display")
+        document.querySelector("#pre2").classList.toggle("display")
+    }
+    
+    function toggle2(){
+        document.querySelector("#pre3").classList.toggle("display")
+        document.querySelector("#pre4").classList.toggle("display")
+    }
+    
+    function toggle3(){
+        document.querySelector("#pre5").classList.toggle("display")
+        document.querySelector("#pre6").classList.toggle("display")
+    }
+    
+       
+    function toggle4(){
+        document.querySelector("#pre7").classList.toggle("display")
+    }
+
+    function toggle5(){
+        document.querySelector("#pre8").classList.toggle("display")
+    }
+
+    function toggle6(){
+        document.querySelector("#pre9").classList.toggle("display")
+    }
+
+    function toggle7(){
+        document.querySelector("#pre10").classList.toggle("display")
+    }
+
+    function toggle8(){
+        document.querySelector("#pre11").classList.toggle("display")
+        document.querySelector("#pre11a").classList.toggle("display")
+    }
+
+    function toggle9(){
+        document.querySelector("#pre12").classList.toggle("display")
+    }
+
+    function toggle11(){
+        document.querySelector("#pre14").classList.toggle("display")
+        document.querySelector("#pre14a").classList.toggle("display")
+    }
+
+        function toggle12(){
+        document.querySelector("#pre15").classList.toggle("display")
+        document.querySelector("#pre15a").classList.toggle("display")
+    }
+    
+    function toggle13(){
+        document.querySelector("#pre16").classList.toggle("display")
+        document.querySelector("#pre16a").classList.toggle("display")
+    }
+
+    function toggle14(){
+        document.querySelector("#pre17").classList.toggle("display")
+        document.querySelector("#pre17a").classList.toggle("display")
+    }
+
+    function toggle15(){
+        document.querySelector("#pre18").classList.toggle("display")
+        document.querySelector("#pre18a").classList.toggle("display")
+    }
+
+    function toggle16(){
+        document.querySelector("#pre19").classList.toggle("display")
+        document.querySelector("#pre19a").classList.toggle("display")
+    }
+
+    function toggle17(){
+        document.querySelector("#pre20").classList.toggle("display")
+        document.querySelector("#pre20a").classList.toggle("display")
+    }
+     
+    function toggle18(){
+        document.querySelector("#pre21").classList.toggle("display")
+        document.querySelector("#pre21a").classList.toggle("display")
+    }
+
+    function toggle19(){
+        document.querySelector("#pre22").classList.toggle("display")
+        document.querySelector("#pre22a").classList.toggle("display")
+    }
+
+    function toggle20(){
+        document.querySelector("#pre23").classList.toggle("display")
+        document.querySelector("#pre23a").classList.toggle("display")
+    }
+
+    function toggle21(){
+        document.querySelector("#pre24").classList.toggle("display")
+        document.querySelector("#pre24a").classList.toggle("display")
+    }
+
+    function toggle22(){
+        document.querySelector("#pre25").classList.toggle("display")
+        document.querySelector("#pre25a").classList.toggle("display")
+    }
+
+    function toggle23(){
+        document.querySelector("#pre26").classList.toggle("display")
+        document.querySelector("#pre26a").classList.toggle("display")
+    }
+
+    function toggle24(){
+        document.querySelector("#pre27").classList.toggle("display")
+        document.querySelector("#pre27a").classList.toggle("display")
+    }
+
+    function toggle25(){
+        document.querySelector("#pre28").classList.toggle("display")
+    }
+
+    function toggle26(){
+        document.querySelector("#pre29").classList.toggle("display")
+    }
+
+    function toggle27(){
+        document.querySelector("#pre30").classList.toggle("display")
+    }
+  
+
+
+</script>
+<body>
+
+    <h1>Javascript</h1>
+    <a href="https://www.interviewbit.com/javascript-interview-questions/#javscript-data-types"
+             target="_blank">Linkn to →</a>
+
+    <div>  
+    <p onclick="toggle()">1.- What are the different data types present in javascript?</p>
+
+        <pre id="pre">
+
+
+            string, number boolean undefined null
+
+            * BigInt - This data type is used to store numbers which are above
+                the limitation of the Number data type. 
+ 
+                It can store large integers and is represented by adding “n” to an integer literal.
+
+            Collection of data like  objects and arrays
+
+            <hr>
+            * Symbol - It is a new data type introduced in
+             the ES6 version of javascript. It is used to store an anonymous and unique value. (primitive)
+
+             para crear propiedades privadas en los objetos 
+             (pones la propiedad entre corchetes [] ( const PROPIEDAD = Symbol('description') ) ) 
+             
+            Examples:
+
+            function crearObjeto(){
+
+                const NAME = Symbol()  
+
+                let obj = {
+                    [NAME]:"jon",
+                    eage:33
+                }
+
+                let id = Symbol('identificador')
+                obj[id]=0
+
+                return{
+                    setId(val){
+                        obj[id]=val
+                    },
+                    getId(){
+                        return obj[id]  // acceder a las propiedades con Symbol
+                    },
+                    get(){
+                        return obj
+                    }
+                }
+            }
+
+            let x = crearObjeto()
+
+            let objeto = x.get()
+            console.log('objeto:', objeto)
+
+            x.setId(33)
+
+            let t = x.getId()
+            console.log(t)
+
+            console:
+            objeto: {age: 33, Symbol(): 'jon', Symbol(identificador): 0}
+            33
+
+
+            <hr>
+
+            
+            const NOMBRE = Symbol('nombre');
+            const SALUDAR = Symbol('saludarFunction');
+
+            let persona = {
+                [NOMBRE]:'raulito',
+                edad: 33,
+                color:'rojo'
+            }
+
+            persona[SALUDAR]= function(){
+                console.log('hola tontos')
+            }
+
+            persona[SALUDAR]()  // acceder a las funciones
+
+            for(let propiedad in persona){
+                console.log('key: ', propiedad)
+                console.log('value: ', persona[propiedad])
+            }
+
+
+           Object.getOwnPropertySymbols(persona)
+
+
+           console:
+
+            hola tontos
+
+            key:  edad
+            value:  33
+
+            key:  color
+            value:  rojo
+
+           (2) [Symbol(nombre), Symbol(saludarFunction)]
+
+           
+
+
+           
+        </pre>
+
+    </div>  
+    <div>  
+        <p onclick="toggle2()">2.-  Explain Hoisting in javascript.</p>
+           
+        <pre id="pre3">
+
+            Hoisting is a default behaviour of javascript where
+             all the variable and function declarations are moved on top.
+
+            The scope can be both local and global.
+
+            Variable initializations are not hoisted, only variable declarations are hoisted
+
+            To avoid hoisting, 
+            you can run javascript in strict mode by using “use strict” on top of the code
+
+        </pre>
+    
+    </div>  
+    <div>  
+        <p onclick="toggle3()">3.- Difference between “==” and “===” operators.</p>
+
+        <pre id="pre5">
+
+
+            Both are comparison operators.
+
+            “ == ” is used to compare values whereas,
+
+            “ === “ is used to compare both value and types.
+
+            
+            <img src="./estrict.png" class="classImg" alt="">
+
+            <img src="./abstract.png" class="classImg" alt="">
+        </pre>
+         
+    </div> 
+    <div> 
+        <p onclick="toggle4()">4.- Explain Implicit Type Coercion in javascript.</p>
+
+        <pre id="pre7">
+
+            --type coershn--
+
+            Implicit type coercion in javascript is 
+
+            automatic conversion of value from one data type to another. 
+            It takes place when the operands of an expression are of different data types.
+
+            All values except 0, -0, “”, null, undefined and NaN are truthy values.
+
+
+        </pre>
+       
+    </div>  
+
+    <br/>
+
+    <div> 
+       <p onclick="toggle5()">5.- Is javascript a statically typed or a dynamically typed language?</p>
+       <pre id="pre8">
+
+        JavaScript is a dynamically typed language  
+
+       </pre>
+    </div>
+    <div> 
+        <p onclick="toggle6()">6.-  What is NaN property in JavaScript?</p>
+        <pre id="pre9">
+
+ 
+            NaN property represents “Not-a-Number” value. 
+            
+            It indicates a value which is not a legal number.
+
+        </pre>
+    </div> 
+    <div> 
+        <p onclick="toggle7()">7.- Explain passed by value and passed by reference</p>
+        <pre id="pre10">
+ 
+            
+            In JavaScript, primitive data types are passed by value 
+            and non-primitive (objects and arrays) data types are passed by reference.
+
+            primitive data types any of this is independent and no problem the reassign values
+            
+            but with arrays or Objects is different if you use 2 different variable names 
+            to create reference for the same OBJ, in the 2 different variables have the same reference 
+            and any change affect in the 2 variables
+            
+            dealing
+        </pre>
+    </div>  
+    <div> 
+        <p onclick="toggle8()">8.- What is an Immediately Invoked Function in JavaScript?</p>
+        <pre id="pre11">
+
+ 
+            An Immediately Invoked Function ( known as IIFE and pronounced as IIFY)
+             is a function that runs as soon as it is defined.
+
+            Syntax of IIFE
+
+            (function(){ 
+              // Do something;
+            })();
+
+        </pre>
+      
+    </div>  
+
+    <br>
+
+    <div>
+        <p onclick="toggle9()">9.- Explain Higher Order Functions in javascript.</p>
+        <pre id="pre12">
+
+ 
+            Functions that operate in other functions,
+                either by taking them as arguments or by returning them.
+
+
+            function higherOrder(fn) {
+              fn()
+            }
+                
+            
+            higherOrder(
+                function() { 
+                    console.log('Hello world')
+                }
+            )
+
+            <hr />
+
+            function higherOrder2() {
+                return function() {
+                  return "Do something";
+                }
+            }
+
+                      
+            var x = higherOrder2();
+
+            x()   // Returns "Do something"
+
+        </pre>
+    </div>
+     
+    <div> 
+        <p onclick="toggle11()">  10. Explain “this” keyword.</p>
+        <pre id="pre14">
+
+          
+            The “this” keyword refers to the object that the function is a property of.
+
+        </pre>
+    
+    </div>   
+    <div> 
+        <p onclick="toggle12()">11.-  Explain call(), apply() and, bind() methods.</p>
+        <pre id="pre15">
+
+
+            call() method allows an object to use the method (function) of another object.
+            call() accepts arguments
+            call() method takes arguments separately whereas, 
+
+            apply() method takes arguments as an array.
+             
+            bind()
+            This method returns a new function,
+            where the value of “this” keyword will be bound to the owner object, 
+            which is provided as a parameter.
+
+        </pre>
+  
+    </div> 
+    <div> 
+        <p onclick="toggle13()">12.- What is currying in JavaScript? </p>
+        <pre id="pre16">
+
+
+            Currying is an advanced technique to transform a function of arguments n,
+
+            to n functions of one or less arguments.
+
+
+
+            function curry(f) { 
+                return function(a) {
+                  return function(b) {
+                    return f(a, b);
+                  };
+                };
+            } // curry(f) does the currying transform
+              
+            // usage
+            function sum(a, b) {
+                return a + b;
+            }
+              
+            let curriedSum = curry(sum);
+              
+            alert( curriedSum(1)(2) ); // 3
+
+        </pre>
+        
+    </div> 
+    <br />
+    <div>
+        <p onclick="toggle14()">13.- Explain Scope and Scope Chain in javascript.</p>
+        <pre id="pre17">
+
+
+        Scope in JS, determines the accessibility of variables and functions at various parts in one`s code.
+
+        There are three types of scopes in JS:
+
+        * Global Scope
+        * Local or Function Scope
+        * Block Scope {}
+
+        Scope Chain
+        if the javascript engine does not find the variable in local scope, 
+        it tries to check for the variable in the outer scope.
+
+        If the variable does not exist in the outer scope, 
+        it tries to find the variable in the global scope.
+
+        </pre>
+
+    </div>   
+    <div> 
+        <p onclick="toggle15()">14.- Explain Closures in JavaScript.</p>
+        <pre id="pre18">
+
+
+            Closures is an ability of a function to remember the variables 
+            and functions that are declared in its outer scope.
+
+
+            function randomFunc(){
+                var obj1 = {name:"Vivian", age:45};
+              
+                return function(){
+                    console.log(obj1.name + " is "+ "awesome");
+                } //Has access to obj1 even when the randomFunc function is executed
+
+            }
+
+              
+            var initialiseClosure = randomFunc(); // Returns a function
+              
+            initialiseClosure(); 
+
+
+            <hr>
+
+            saves the value in the memory for further reference. 
+            This is the reason why the returning function is able to use the variable declared
+            in the outer scope even after the function is already executed.
+
+            This ability of a function to store a variable for further reference
+            even after it is executed, is called Closure.
+
+
+        </pre>
+    
+    </div>  
+
+   
+
+    <div> 
+        <p onclick="toggle16()">15.- What are object prototypes?</p>
+        <pre id="pre19">
+
+
+            All javascript objects inherit properties from a prototype.
+
+
+            For example,
+
+            Date objects inherit properties from the Date prototype
+
+            Math objects inherit properties from the Math prototype
+
+            Array objects inherit properties from the Array prototype.
+
+
+            On top of the chain is Object.prototype. 
+            Every prototype inherits properties and methods from the Object.prototype.
+
+            A prototype is a blueprint of an object. 
+            Prototype allows us to use properties and methods on an object 
+            even if the properties and methods do not exist on the current object.
+
+            <img src="./proto.png" class="classImg" alt="">
+        </pre>
+    </div> 
+    <div> 
+        <p onclick="toggle17()">16.- What are callbacks? </p>
+        <pre id="pre20">
+
+
+            A callback is a function that will be executed after another function gets executed.
+
+            Functions that are used as an argument to another function are called callback functions.
+
+            Therefore, callback is a function that will be executed after another function gets executed.
+
+        </pre>
+   
+    </div>  
+    <br> 
+    <div> 
+        <p onclick="toggle18()">17.- What is memoization?</p>
+        <pre id="pre21">
+
+            when you have a function of high cost, we must save the result in cache memory 
+            so that when it is executed with the same parameters instead of executing it again
+            it only returns the value saved in cache
+
+        </pre>
+
+    </div>
+
+    <div>
+        <p onclick="toggle19()">18.- What is recursion in a programming language?</p>
+        <pre id="pre22">    
+
+            Recursion is a technique to iterate over an operation
+             by having a function call itself repeatedly until it arrives at a result.
+
+
+            function add(number) {
+                if (number <= 0) {
+                  return 0;
+                } else {
+                  return number + add(number - 1);
+                }
+            }
+              
+            add(3) => 3 + add(2)
+                      3 + 2 + add(1)
+                      3 + 2 + 1 + add(0)
+                      3 + 2 + 1 + 0 = 6  
+
+        </pre>
+    
+    </div> 
+    
+    <div> 
+        <p onclick="toggle20()">19.- What is the use of a constructor function in javascript?</p>
+        <pre id="pre23">
+
+
+            Constructor functions are used to create objects in javascript.
+
+            When do we use constructor functions?
+            If we want to create multiple objects having similar properties and methods
+
+            **Note- Name of a constructor function should always be written
+              in Pascal Notation every word should start with a capital letter.
+
+
+            Constructor functions allow us to group similar objects.
+
+        </pre>
+
+    </div> 
+    <div> 
+        <p onclick="toggle21()">20.-  What is DOM?</p>
+        <pre id="pre24">
+
+            Document Object Model.
+
+            DOM is a programming interface for HTML and XML documents.
+
+            When the browser tries to render a HTML document, 
+            it creates an object based on the HTML document called DOM.
+            
+        </pre>
+  
+    </div>  
+   
+    <br>
+
+    <div>
+        <p onclick="toggle22()">21.- What are arrow functions?</p>
+        <pre id="pre25">
+
+            They provide us with a new and shorter syntax for declaring functions.
+
+            Arrow functions can only be used as a function expression.
+
+            Each function in JavaScript defines its own (this value) context
+            but arrow functions capture the (this value) of the nearest enclosing context. 
+
+            and don't use arrow functions in objects literals           
+
+        </pre>
+   
+    </div>
+    <div> 
+        <p onclick="toggle23()">22.- Differences between declaring variables using var, let and const</p>
+        <pre id="pre26">
+
+            the scoping
+            
+            let and const are block scope 
+            
+            var is function scope (global scope)
+
+            <img src="./let.png" class="classImg" alt="">
+
+            TEMPORAL DEAD ZONE 
+            area of the code where we still cannot access certain variables (let or const)
+        </pre>
+     
+    </div> 
+    <div> 
+        <p onclick="toggle24()">23.- What is the rest parameter and spread operator?</p>
+        <pre id="pre27">
+
+            **Note- Rest parameter should always be used at the last parameter of a function
+
+        </pre>
+
+    </div>  
+    <br>
+    <div> 
+        <p onclick="toggle25()">24.- What is the use of promises in javascript?</p>
+        <pre id="pre28">
+
+
+            Promises are used to handle asynchronous operations in javascript.
+
+
+            Promise object has four states -
+            
+            Pending - Initial state of promise. 
+                This state represents that the promise has neither been fulfilled nor been rejected, 
+
+            Fulfilled - This state represents that the promise has been fulfilled,
+                meaning the async operation is completed.
+
+            Rejected - T his state represents that the promise has been rejected for some reason,
+                meaning the async operation has failed.
+
+            Settled - This state represents that the promise has been either rejected or fulfilled.
+
+            <hr>
+
+            resolve is a function that will be called, when the async operation has been successfully completed.
+
+            reject is a function that will be called, when the async operation fails or if some error occurs.
+
+            <hr>
+
+            then() method is used to access the result when the promise is fulfilled.
+
+            catch() method is used to access the result/error when the promise is rejected.
+
+
+        </pre>
+    
+    </div> 
+
+    <div> 
+        <p onclick="toggle26()">25.- What are classes in javascript?</p>
+        <pre id="pre29" style="width: 1000px;">
+            <img src="./class.png" class="classImg"  alt="ss">
+
+
+        </pre>
+    </div>   
+
+    <div> 
+        <p onclick="toggle27()">25.- What are generator functions?</p>
+        <pre id="pre30" style="width: 1000px;">
+            <img src="./generadores_jm.png" class="classImg"  alt="ss">
+        </pre>
+    </div> 
+
+    <br>
+    
+</body>
+</html>
+
+
